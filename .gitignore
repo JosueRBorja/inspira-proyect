@@ -1,0 +1,8 @@
+venv/
+.env
+api/.env
+api/store.db
+api/uploads/
+__pycache__/
+*.pyc
+PAGINA.zip
