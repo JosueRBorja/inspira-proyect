@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Inspira</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <header class="encabezado">
+        <nav class="navegacion" aria-label="Navegacion principal">
+            <a class="marca" href="index.html">Inspira</a>
+            <ul class="menu-principal">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="normas.html">Normas</a></li>
+                <li><a href="registro.html">Registro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <section class="seccion-login" aria-labelledby="titulo-login">
+            <form class="formulario-login" action="index.html" aria-label="Formulario de inicio de sesion">
+                <h1 id="titulo-login">Bienvenido otra vez</h1>
+                <p>Ingresa para continuar explorando tus colecciones visuales.</p>
+
+                <label for="correo">Correo electronico</label>
+                <input id="correo" name="correo" type="email" placeholder="usuario@correo.com">
+
+                <label for="contrasena">Contraseña</label>
+                <input id="contrasena" name="contrasena" type="password" placeholder="Tu contraseña">
+
+                <div class="opciones-login">
+                    <label class="opcion-recordar">
+                        <input type="checkbox" name="recordar">
+                        Recordarme
+                    </label>
+                    
+                </div>
+
+                <button type="submit">Ingresar</button>
+
+                <p class="texto-secundario">No tienes cuenta? <a href="registro.html">Registrate</a></p>
+            </form>
+
+            <aside class="panel-destacado" aria-label="Mensaje destacado">
+                <h2>Guarda inspiracion, organiza ideas y comparte tu mirada.</h2>
+            </aside>
+        </section>
+    </main>
+    <script src="js/comun.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

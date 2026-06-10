@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar publicacion | Inspira</title>
+    <link rel="stylesheet" href="css/editar-publicacion.css">
+    <link rel="stylesheet" href="css/navegacion-lateral.css">
+    <link rel="stylesheet" href="css/componentes.css?v=2">
+</head>
+<body>
+    <aside class="barra-lateral" aria-label="Menu lateral">
+        <a class="logo-lateral" href="index.html" aria-label="Inicio" data-tooltip="Inicio">I</a>
+        <nav class="menu-lateral" aria-label="Accesos principales">
+            <a class="enlace-lateral" href="mis-guardados.html" aria-label="Mis guardados" data-tooltip="Mis guardados">◇</a>
+            <a class="enlace-lateral" href="subir.html" aria-label="Subir" data-tooltip="Subir">＋</a>
+            <a class="enlace-lateral enlace-activo" href="mi-cuenta.html" aria-label="Mi cuenta" data-tooltip="Mi cuenta">···</a>
+        </nav>
+        <a class="enlace-lateral ajustes" href="perfil.html" aria-label="Editar perfil" data-tooltip="Editar perfil">⚙</a>
+    </aside>
+
+    <header class="encabezado">
+        <nav class="navegacion" aria-label="Navegacion principal">
+            <a class="marca" href="index.html">Inspira</a>
+            <ul class="menu-principal">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="normas.html">Normas</a></li>
+                <li><a href="mi-cuenta.html">Mi cuenta</a></li>
+                <li><a href="subir.html">Subir</a></li>
+                <li><a href="login.html">Salir</a></li>
+            </ul>
+            <div class="perfil-desplegable">
+                <button class="usuario-activo boton-perfil" type="button" aria-label="Abrir menu de perfil" aria-expanded="false">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Foto de perfil de Josue Ramirez">
+                    <span class="perfil-alias">@josue.visual</span>
+                    <span class="perfil-flecha" aria-hidden="true">⌄</span>
+                </button>
+                <div class="menu-perfil">
+                    <a href="mi-cuenta.html">Mi cuenta</a>
+                    <a href="mis-guardados.html">Mis guardados</a>
+                    <a href="perfil.html">Editar perfil</a>
+                    <a class="salir" href="login.html">Salir</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <section class="seccion-edicion" aria-labelledby="titulo-edicion">
+            <header class="cabecera-edicion">
+                <p class="etiqueta">Publicacion existente</p>
+                <h1 id="titulo-edicion">Editar publicacion</h1>
+                <p>Actualiza los datos visibles de la imagen que ya fue subida por el usuario.</p>
+            </header>
+
+            <form class="formulario-edicion" aria-label="Formulario para editar publicacion">
+                <section class="vista-imagen" aria-labelledby="titulo-imagen">
+                    <h2 id="titulo-imagen">Imagen actual</h2>
+                    <figure class="imagen-actual">
+                        <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=700&q=80" alt="Imagen actual de la publicacion">
+                        <figcaption>Futbol en accion</figcaption>
+                    </figure>
+
+                    <label class="selector-imagen" for="imagen">Cambiar imagen</label>
+                    <input id="imagen" name="imagen" type="file">
+                    <p class="ayuda">Este campo representa el reemplazo de imagen en una version real.</p>
+                </section>
+
+                <section class="datos-publicacion" aria-labelledby="titulo-datos">
+                    <h2 id="titulo-datos">Datos de la publicacion</h2>
+
+                    <label for="titulo">Titulo</label>
+                    <input id="titulo" name="titulo" type="text" value="Futbol en accion">
+
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" name="categoria">
+                        <option selected>Deportes</option>
+                        <option>Casas</option>
+                        <option>Edificios</option>
+                        <option>Caballos</option>
+                        <option>Ropa de hombre</option>
+                        <option>Paisajes</option>
+                    </select>
+
+                    <label for="descripcion">Descripcion</label>
+                    <textarea id="descripcion" name="descripcion" rows="7">Referencia visual de energia deportiva, movimiento y composicion dinamica dentro de una cancha.</textarea>
+
+                    <label for="etiquetas">Etiquetas</label>
+                    <input id="etiquetas" name="etiquetas" type="text" value="deportes, futbol, accion">
+
+                    <div class="acciones-formulario">
+                        <a href="mi-cuenta.html">Cancelar</a>
+                        <button class="boton-eliminar" type="button">Eliminar publicacion</button>
+                        <button type="submit">Guardar cambios</button>
+                    </div>
+                </section>
+            </form>
+        </section>
+    </main>
+    <script src="js/comun.js?v=2"></script>
+    <script src="js/editar-publicacion.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir foto | Inspira</title>
+    <link rel="stylesheet" href="css/subir.css">
+    <link rel="stylesheet" href="css/navegacion-lateral.css">
+    <link rel="stylesheet" href="css/componentes.css?v=2">
+</head>
+<body>
+    <aside class="barra-lateral" aria-label="Menu lateral">
+        <a class="logo-lateral" href="index.html" aria-label="Inicio" data-tooltip="Inicio">I</a>
+        <nav class="menu-lateral" aria-label="Accesos principales">
+            <a class="enlace-lateral" href="mis-guardados.html" aria-label="Mis guardados" data-tooltip="Mis guardados">◇</a>
+            <a class="enlace-lateral enlace-activo" href="subir.html" aria-label="Subir" data-tooltip="Subir">＋</a>
+            <a class="enlace-lateral" href="mi-cuenta.html" aria-label="Mi cuenta" data-tooltip="Mi cuenta">···</a>
+        </nav>
+        <a class="enlace-lateral ajustes" href="perfil.html" aria-label="Editar perfil" data-tooltip="Editar perfil">⚙</a>
+    </aside>
+
+    <header class="encabezado">
+        <nav class="navegacion" aria-label="Navegacion principal">
+            <a class="marca" href="index.html">Inspira</a>
+            <ul class="menu-principal">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="normas.html">Normas</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="login.html">Salir</a></li>
+            </ul>
+            <div class="perfil-desplegable">
+                <button class="usuario-activo boton-perfil" type="button" aria-label="Abrir menu de perfil" aria-expanded="false">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Foto de perfil de Josue Ramirez">
+                    <span class="perfil-alias">@josue.visual</span>
+                    <span class="perfil-flecha" aria-hidden="true">⌄</span>
+                </button>
+                <div class="menu-perfil">
+                    <a href="mi-cuenta.html">Mi cuenta</a>
+                    <a href="mis-guardados.html">Mis guardados</a>
+                    <a href="perfil.html">Editar perfil</a>
+                    <a class="salir" href="login.html">Salir</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <section class="seccion-subida" aria-labelledby="titulo-subida">
+            <header class="cabecera-subida">
+                <p class="etiqueta">Nueva publicacion</p>
+                <h1 id="titulo-subida">Sube una foto a tu tablero</h1>
+                <p>Maquetacion de una pantalla para publicar imagenes con titulo, categoria y descripcion.</p>
+            </header>
+
+            <form class="formulario-subida" aria-label="Formulario para subir foto">
+                <section class="zona-archivo" aria-labelledby="titulo-archivo">
+                    <h2 id="titulo-archivo">Imagen</h2>
+                    <label class="selector-archivo" for="archivo">
+                        <span>Arrastra una imagen o selecciona un archivo</span>
+                        <small>PNG, JPG o WEBP</small>
+                    </label>
+                    <input id="archivo" name="archivo" type="file">
+                </section>
+
+                <section class="datos-publicacion" aria-labelledby="titulo-datos">
+                    <h2 id="titulo-datos">Datos de la publicacion</h2>
+
+                    <label for="titulo">Titulo</label>
+                    <input id="titulo" name="titulo" type="text" placeholder="Ej. Inspiracion minimalista">
+
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" name="categoria">
+                        <option>Deportes</option>
+                        <option>Casas</option>
+                        <option>Edificios</option>
+                        <option>Caballos</option>
+                        <option>Ropa de hombre</option>
+                        <option>Paisajes</option>
+                        <option value="otra">Otra categoria</option>
+                    </select>
+
+                    <div class="grupo-otra-categoria" hidden>
+                        <label for="nueva-categoria">Nombre de la categoria</label>
+                        <input id="nueva-categoria" name="nuevaCategoria" type="text" placeholder="Ej. Autos, tecnologia, comida">
+                    </div>
+
+                    <label for="descripcion">Descripcion</label>
+                    <textarea id="descripcion" name="descripcion" rows="6" placeholder="Describe la idea de tu publicacion"></textarea>
+
+                    <div class="acciones-formulario">
+                        <a href="index.html">Cancelar</a>
+                        <button type="submit">Publicar foto</button>
+                    </div>
+                </section>
+            </form>
+        </section>
+    </main>
+    <script src="js/comun.js?v=2"></script>
+    <script src="js/subir.js"></script>
+</body>
+</html>

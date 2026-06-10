@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | Inspira</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/componentes.css?v=2">
+</head>
+<body>
+    <aside class="barra-lateral" aria-label="Menu lateral">
+        <a class="logo-lateral" href="index.html" aria-label="Inicio" data-tooltip="Inicio">I</a>
+        <nav class="menu-lateral" aria-label="Accesos principales">
+            <a class="enlace-lateral" href="mis-guardados.html" aria-label="Mis guardados" data-tooltip="Mis guardados">◇</a>
+            <a class="enlace-lateral" href="subir.html" aria-label="Subir" data-tooltip="Subir">＋</a>
+            <a class="enlace-lateral" href="mi-cuenta.html" aria-label="Mi cuenta" data-tooltip="Mi cuenta">···</a>
+        </nav>
+        <a class="enlace-lateral ajustes" href="perfil.html" aria-label="Editar perfil" data-tooltip="Editar perfil">⚙</a>
+    </aside>
+
+    <div class="pagina">
+        <header class="encabezado">
+            <nav class="navegacion" aria-label="Navegacion principal">
+            <form class="buscador" role="search">
+                <label for="buscar">Buscar ideas</label>
+                <input id="buscar" type="search" placeholder="Buscar deportes, casas, edificios, caballos...">
+            </form>
+            <div class="perfil-desplegable">
+                <button class="usuario-activo boton-perfil" type="button" aria-label="Abrir menu de perfil" aria-expanded="false">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Foto de perfil de Josue Ramirez">
+                    <span class="perfil-alias">J</span>
+                    <span class="perfil-flecha" aria-hidden="true">⌄</span>
+                </button>
+                <div class="menu-perfil">
+                    <a href="mi-cuenta.html">Mi cuenta</a>
+                    <a href="mis-guardados.html">Mis guardados</a>
+                    <a href="perfil.html">Editar perfil</a>
+                    <a class="salir" href="login.html">Salir</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <section class="categorias" aria-label="Categorias de busqueda">
+            <a class="categoria-activa" href="#">Todos</a>
+            <a href="#">Deportes</a>
+            <a href="#">Casas</a>
+            <a href="#">Edificios</a>
+            <a href="#">Caballos</a>
+            <a href="#">Ropa de hombre</a>
+            <a href="#">Paisajes</a>
+        </section>
+
+        <section class="galeria" aria-label="Galeria de publicaciones">
+            <article class="tarjeta-publicacion tarjeta-mediana">
+                <a class="enlace-imagen" href="detalle.html">
+                    <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=700&q=80" alt="Jugador de futbol en una cancha">
+                </a>
+                <a class="boton-guardar" href="mis-guardados.html">Guardar</a>
+                <div class="contenido-tarjeta">
+                    <div>
+                        <h2>Futbol en accion</h2>
+                        <p>Por Josue Ramirez</p>
+                    </div>
+                    <button class="boton-opciones" type="button" aria-label="Mas opciones">...</button>
+                </div>
+            </article>
+
+            <article class="tarjeta-publicacion tarjeta-alta">
+                <a class="enlace-imagen" href="detalle.html">
+                    <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=700&q=80" alt="Casa moderna rodeada de jardin">
+                </a>
+                <a class="boton-guardar" href="mis-guardados.html">Guardar</a>
+                <div class="contenido-tarjeta">
+                    <div>
+                        <h2>Casa familiar</h2>
+                        <p>Por Daniel Rodriguez</p>
+                    </div>
+                    <button class="boton-opciones" type="button" aria-label="Mas opciones">...</button>
+                </div>
+            </article>
+
+            <article class="tarjeta-publicacion tarjeta-baja">
+                <a class="enlace-imagen" href="detalle.html">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=700&q=80" alt="Edificio alto con arquitectura moderna">
+                </a>
+                <a class="boton-guardar" href="mis-guardados.html">Guardar</a>
+                <div class="contenido-tarjeta">
+                    <div>
+                        <h2>Edificio urbano</h2>
+                        <p>Por Emilio Poveda</p>
+                    </div>
+                    <button class="boton-opciones" type="button" aria-label="Mas opciones">...</button>
+                </div>
+            </article>
+
+            <article class="tarjeta-publicacion tarjeta-extra-alta">
+                <a class="enlace-imagen" href="detalle.html">
+                    <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=700&q=80" alt="Caballo corriendo en el campo">
+                </a>
+                <a class="boton-guardar" href="mis-guardados.html">Guardar</a>
+                <div class="contenido-tarjeta">
+                    <div>
+                        <h2>Caballo en campo</h2>
+                        <p>Por Daniel Rodriguez</p>
+                    </div>
+                    <button class="boton-opciones" type="button" aria-label="Mas opciones">...</button>
+                </div>
+            </article>
+
+            <article class="tarjeta-publicacion tarjeta-mediana">
+                <a class="enlace-imagen" href="detalle.html">
+                    <img src="https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?auto=format&fit=crop&w=700&q=80" alt="Hombre con ropa casual elegante">
+                </a>
+                <a class="boton-guardar" href="mis-guardados.html">Guardar</a>
+                <div class="contenido-tarjeta">
+                    <div>
+                        <h2>Ropa casual masculina</h2>
+                        <p>Por Andrea L.</p>
+                    </div>
+                    <button class="boton-opciones" type="button" aria-label="Mas opciones">...</button>
+                </div>
+            </article>
+
+            <article class="tarjeta-publicacion tarjeta-alta">
+                <a class="enlace-imagen" href="detalle.html">
+                    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=700&q=80" alt="Paisaje de montanas con camino">
+                </a>
+                <a class="boton-guardar" href="mis-guardados.html">Guardar</a>
+                <div class="contenido-tarjeta">
+                    <div>
+                        <h2>Paisaje de montana</h2>
+                        <p>Por Emilio Poveda</p>
+                    </div>
+                    <button class="boton-opciones" type="button" aria-label="Mas opciones">...</button>
+                </div>
+            </article>
+
+            <article class="tarjeta-publicacion tarjeta-baja">
+                <a class="enlace-imagen" href="detalle.html">
+                    <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=700&q=80" alt="Cancha de basquet con aro">
+                </a>
+                <a class="boton-guardar" href="mis-guardados.html">Guardar</a>
+                <div class="contenido-tarjeta">
+                    <div>
+                        <h2>Basquet urbano</h2>
+                        <p>Por Valeria M.</p>
+                    </div>
+                    <button class="boton-opciones" type="button" aria-label="Mas opciones">...</button>
+                </div>
+            </article>
+
+            <article class="tarjeta-publicacion tarjeta-extra-alta">
+                <a class="enlace-imagen" href="detalle.html">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80" alt="Casa amplia con fachada moderna">
+                </a>
+                <a class="boton-guardar" href="mis-guardados.html">Guardar</a>
+                <div class="contenido-tarjeta">
+                    <div>
+                        <h2>Casa moderna</h2>
+                        <p>Por Josue Ramirez</p>
+                    </div>
+                    <button class="boton-opciones" type="button" aria-label="Mas opciones">...</button>
+                </div>
+            </article>
+
+            <article class="tarjeta-publicacion tarjeta-mediana">
+                <a class="enlace-imagen" href="detalle.html">
+                    <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=700&q=80" alt="Edificio de formas geometricas modernas">
+                </a>
+                <a class="boton-guardar" href="mis-guardados.html">Guardar</a>
+                <div class="contenido-tarjeta">
+                    <div>
+                        <h2>Arquitectura moderna</h2>
+                        <p>Por Lucia F.</p>
+                    </div>
+                    <button class="boton-opciones" type="button" aria-label="Mas opciones">...</button>
+                </div>
+            </article>
+
+            <article class="tarjeta-publicacion tarjeta-alta">
+                <a class="enlace-imagen" href="detalle.html">
+                    <img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=700&q=80" alt="Ropa de hombre en estilo formal">
+                </a>
+                <a class="boton-guardar" href="mis-guardados.html">Guardar</a>
+                <div class="contenido-tarjeta">
+                    <div>
+                        <h2>Estilo formal hombre</h2>
+                        <p>Por Renata G.</p>
+                    </div>
+                    <button class="boton-opciones" type="button" aria-label="Mas opciones">...</button>
+                </div>
+            </article>
+        </section>
+    </main>
+    </div>
+    <script src="js/comun.js?v=2"></script>
+    <script src="js/index.js?v=2"></script>
+</body>
+</html>

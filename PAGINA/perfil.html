@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar perfil | Inspira</title>
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/navegacion-lateral.css">
+    <link rel="stylesheet" href="css/componentes.css?v=2">
+</head>
+<body>
+    <aside class="barra-lateral" aria-label="Menu lateral">
+        <a class="logo-lateral" href="index.html" aria-label="Inicio" data-tooltip="Inicio">I</a>
+        <nav class="menu-lateral" aria-label="Accesos principales">
+            <a class="enlace-lateral" href="mis-guardados.html" aria-label="Mis guardados" data-tooltip="Mis guardados">◇</a>
+            <a class="enlace-lateral" href="subir.html" aria-label="Subir" data-tooltip="Subir">＋</a>
+            <a class="enlace-lateral" href="mi-cuenta.html" aria-label="Mi cuenta" data-tooltip="Mi cuenta">···</a>
+        </nav>
+        <a class="enlace-lateral ajustes enlace-activo" href="perfil.html" aria-label="Editar perfil" data-tooltip="Editar perfil">⚙</a>
+    </aside>
+
+    <header class="encabezado">
+        <nav class="navegacion" aria-label="Navegacion principal">
+            <a class="marca" href="index.html">Inspira</a>
+            <ul class="menu-principal">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="normas.html">Normas</a></li>
+                <li><a href="subir.html">Subir</a></li>
+                <li><a href="login.html">Salir</a></li>
+            </ul>
+            <div class="perfil-desplegable">
+                <button class="usuario-activo boton-perfil" type="button" aria-label="Abrir menu de perfil" aria-expanded="false">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Foto de perfil de Josue Ramirez">
+                    <span class="perfil-alias">@josue.visual</span>
+                    <span class="perfil-flecha" aria-hidden="true">⌄</span>
+                </button>
+                <div class="menu-perfil">
+                    <a href="mi-cuenta.html">Mi cuenta</a>
+                    <a href="mis-guardados.html">Mis guardados</a>
+                    <a href="perfil.html">Editar perfil</a>
+                    <a class="salir" href="login.html">Salir</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <section class="seccion-perfil" aria-labelledby="titulo-perfil">
+            <header class="cabecera-perfil">
+                <p class="etiqueta">Cuenta de usuario</p>
+                <h1 id="titulo-perfil">Editar perfil</h1>
+                <p>Actualiza la informacion que los demas usuarios veran en tus publicaciones y comentarios.</p>
+            </header>
+
+            <form class="formulario-perfil" aria-label="Formulario para editar perfil">
+                <section class="foto-perfil" aria-labelledby="titulo-foto">
+                    <h2 id="titulo-foto">Foto de perfil</h2>
+
+                    <figure class="vista-previa">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" alt="Vista previa de la foto de perfil">
+                        <figcaption>Vista previa</figcaption>
+                    </figure>
+
+                    <label class="selector-foto" for="foto">
+                        Seleccionar nueva foto
+                    </label>
+                    <input id="foto" name="foto" type="file" accept="image/png, image/jpeg, image/webp">
+                    <p class="ayuda">Formato recomendado: JPG, PNG o WEBP.</p>
+                </section>
+
+                <section class="datos-perfil" aria-labelledby="titulo-datos">
+                    <h2 id="titulo-datos">Informacion publica</h2>
+
+                    <label for="nombre">Nombre completo</label>
+                    <input id="nombre" name="nombre" type="text" placeholder="Ej. Josue Ramirez">
+
+                    <label for="alias">Alias visible</label>
+                    <input id="alias" name="alias" type="text" placeholder="Ej. @josue.visual">
+
+                    <label for="biografia">Descripcion breve</label>
+                    <textarea id="biografia" name="biografia" rows="5" placeholder="Cuenta algo corto sobre tu estilo o tus intereses"></textarea>
+
+                    <div class="vista-publica" aria-label="Vista publica del perfil">
+                        <h3>Asi te veran los demas</h3>
+                        <article class="tarjeta-usuario">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Foto del usuario">
+                            <div>
+                                <h4>Josue Ramirez</h4>
+                                <p>@josue.visual</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="acciones-formulario">
+                        <a href="index.html">Cancelar</a>
+                        <button type="submit">Guardar cambios</button>
+                    </div>
+                </section>
+            </form>
+        </section>
+    </main>
+    <script src="js/comun.js?v=2"></script>
+    <script src="js/perfil.js"></script>
+</body>
+</html>

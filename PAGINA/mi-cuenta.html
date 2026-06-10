@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi cuenta | Inspira</title>
+    <link rel="stylesheet" href="css/mi-cuenta.css">
+    <link rel="stylesheet" href="css/navegacion-lateral.css">
+    <link rel="stylesheet" href="css/componentes.css?v=2">
+</head>
+<body>
+    <aside class="barra-lateral" aria-label="Menu lateral">
+        <a class="logo-lateral" href="index.html" aria-label="Inicio" data-tooltip="Inicio">I</a>
+        <nav class="menu-lateral" aria-label="Accesos principales">
+            <a class="enlace-lateral" href="mis-guardados.html" aria-label="Mis guardados" data-tooltip="Mis guardados">◇</a>
+            <a class="enlace-lateral" href="subir.html" aria-label="Subir" data-tooltip="Subir">＋</a>
+            <a class="enlace-lateral enlace-activo" href="mi-cuenta.html" aria-label="Mi cuenta" data-tooltip="Mi cuenta">···</a>
+        </nav>
+        <a class="enlace-lateral ajustes" href="perfil.html" aria-label="Editar perfil" data-tooltip="Editar perfil">⚙</a>
+    </aside>
+
+    <header class="encabezado">
+        <nav class="navegacion" aria-label="Navegacion principal">
+            <a class="marca" href="index.html">Inspira</a>
+            <ul class="menu-principal">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="normas.html">Normas</a></li>
+                <li><a href="subir.html">Subir</a></li>
+                <li><a href="mis-guardados.html">Mis guardados</a></li>
+                <li><a href="perfil.html">Editar perfil</a></li>
+                <li><a href="login.html">Salir</a></li>
+            </ul>
+            <div class="perfil-desplegable">
+                <button class="usuario-activo boton-perfil" type="button" aria-label="Abrir menu de perfil" aria-expanded="false">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Foto de perfil de Josue Ramirez">
+                    <span class="perfil-alias">@josue.visual</span>
+                    <span class="perfil-flecha" aria-hidden="true">⌄</span>
+                </button>
+                <div class="menu-perfil">
+                    <a href="mi-cuenta.html">Mi cuenta</a>
+                    <a href="mis-guardados.html">Mis guardados</a>
+                    <a href="perfil.html">Editar perfil</a>
+                    <a class="salir" href="login.html">Salir</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <section class="perfil-usuario" aria-labelledby="titulo-cuenta">
+            <figure class="foto-usuario">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=260&q=80" alt="Foto de perfil de Josue Ramirez">
+            </figure>
+
+            <article class="datos-usuario">
+                <p class="etiqueta">Perfil del usuario</p>
+                <h1 id="titulo-cuenta">Josue Ramirez</h1>
+                <p class="alias">@josue.visual</p>
+                <p class="descripcion">Creador de contenido visual. Comparte referencias de deportes, casas, edificios, caballos, ropa masculina y paisajes.</p>
+
+                <div class="resumen-cuenta" aria-label="Resumen de actividad">
+                    <article>
+                        <strong>12</strong>
+                        <span>Publicaciones</span>
+                    </article>
+                    <article>
+                        <strong>84</strong>
+                        <span>Guardados recibidos</span>
+                    </article>
+                    <article>
+                        <strong>36</strong>
+                        <span>Comentarios</span>
+                    </article>
+                </div>
+
+                <div class="acciones-perfil">
+                    <a class="boton-principal" href="perfil.html">Editar perfil</a>
+                    <a class="boton-secundario" href="subir.html">Subir foto</a>
+                </div>
+            </article>
+        </section>
+
+        <section class="seccion-publicaciones" aria-labelledby="titulo-publicaciones">
+            <header class="cabecera-seccion">
+                <div>
+                    <p class="etiqueta">Contenido subido</p>
+                    <h2 id="titulo-publicaciones">Mis publicaciones</h2>
+                </div>
+                <a href="subir.html">Crear nueva</a>
+            </header>
+
+            <div class="lista-publicaciones">
+                <article class="tarjeta-publicacion">
+                    <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=600&q=80" alt="Jugador de futbol en una cancha">
+                    <div class="contenido-publicacion">
+                        <h3>Futbol en accion</h3>
+                        <p>Deportes</p>
+                        <span>24 guardados</span>
+                    </div>
+                    <div class="acciones-publicacion">
+                        <a href="detalle.html">Ver</a>
+                        <a href="editar-publicacion.html">Editar</a>
+                        <button class="boton-eliminar" type="button">Eliminar</button>
+                    </div>
+                </article>
+
+                <article class="tarjeta-publicacion">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Casa amplia con fachada moderna">
+                    <div class="contenido-publicacion">
+                        <h3>Casa moderna</h3>
+                        <p>Casas</p>
+                        <span>18 guardados</span>
+                    </div>
+                    <div class="acciones-publicacion">
+                        <a href="detalle.html">Ver</a>
+                        <a href="editar-publicacion.html">Editar</a>
+                        <button class="boton-eliminar" type="button">Eliminar</button>
+                    </div>
+                </article>
+
+                <article class="tarjeta-publicacion">
+                    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80" alt="Paisaje de montanas con camino">
+                    <div class="contenido-publicacion">
+                        <h3>Paisaje de montana</h3>
+                        <p>Paisajes</p>
+                        <span>31 guardados</span>
+                    </div>
+                    <div class="acciones-publicacion">
+                        <a href="detalle.html">Ver</a>
+                        <a href="editar-publicacion.html">Editar</a>
+                        <button class="boton-eliminar" type="button">Eliminar</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <script src="js/comun.js?v=2"></script>
+    <script src="js/mi-cuenta.js"></script>
+</body>
+</html>

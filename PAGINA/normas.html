@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normas del sistema | Inspira</title>
+    <link rel="stylesheet" href="css/normas.css">
+</head>
+<body>
+    <header class="encabezado">
+        <nav class="navegacion" aria-label="Navegacion principal">
+            <a class="marca" href="index.html">Inspira</a>
+            <ul class="menu-principal">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="registro.html">Registro</a></li>
+                <li><a href="login.html">Ingresar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <section class="cabecera-normas" aria-labelledby="titulo-normas">
+            <h1 class="etiqueta">Terminos y condiciones</h1>
+            <h2 id="titulo-normas">Normas del sistema</h2>
+            <p>Estas reglas definen el uso responsable de la plataforma y se reflejan en validaciones de registro, publicacion, comentarios y perfil.</p>
+        </section>
+
+        <section class="paneles-normas" aria-label="Reglas y politicas de uso">
+            <article class="panel-norma">
+                <h2>Reglas de uso</h2>
+                <ul>
+                    <li>El usuario debe registrarse con datos validos.</li>
+                    <li>El alias publico debe usarse para identificarse sin exponer el correo.</li>
+                    <li>No se permite publicar contenido ofensivo, violento, discriminatorio o de acoso.</li>
+                    <li>Las publicaciones deben tener titulo, imagen y categoria.</li>
+                </ul>
+            </article>
+
+            <article class="panel-norma">
+                <h2>Politicas de contenido</h2>
+                <ul>
+                    <li>Las imagenes deben respetar derechos de autor y privacidad de terceros.</li>
+                    <li>Los comentarios deben mantener un lenguaje respetuoso.</li>
+                    <li>El sistema puede bloquear palabras asociadas con acoso, violencia o discriminacion.</li>
+                    <li>El contenido se organiza por categorias para mejorar la navegacion responsable.</li>
+                </ul>
+            </article>
+
+            <article class="panel-norma">
+                <h2>Responsabilidades del usuario</h2>
+                <ul>
+                    <li>El usuario es responsable del material que sube.</li>
+                    <li>No debe compartir datos personales propios o de otras personas en campos publicos.</li>
+                    <li>Debe eliminar o corregir contenido que incumpla las normas.</li>
+                    <li>Debe usar la plataforma sin afectar la seguridad o privacidad de otros usuarios.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="mecanismos-eticos" aria-labelledby="titulo-mecanismos">
+            <h2 id="titulo-mecanismos">Mecanismos verificables implementados</h2>
+            <div class="lista-mecanismos">
+                <article>
+                    <strong>Privacidad</strong>
+                    <p>La interfaz publica muestra alias, foto y biografia, pero no muestra el correo del usuario.</p>
+                </article>
+                <article>
+                    <strong>Control de publicacion</strong>
+                    <p>La subida de fotos exige imagen, titulo y categoria antes de continuar.</p>
+                </article>
+                <article>
+                    <strong>Moderacion basica</strong>
+                    <p>JavaScript bloquea palabras no permitidas y correos en campos publicos.</p>
+                </article>
+                <article>
+                    <strong>Confirmacion</strong>
+                    <p>Antes de eliminar una publicacion se solicita confirmacion al usuario.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

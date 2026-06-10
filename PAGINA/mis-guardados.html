@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis guardados | Inspira</title>
+    <link rel="stylesheet" href="css/mis-guardados.css">
+    <link rel="stylesheet" href="css/navegacion-lateral.css">
+    <link rel="stylesheet" href="css/componentes.css?v=2">
+</head>
+<body>
+    <aside class="barra-lateral" aria-label="Menu lateral">
+        <a class="logo-lateral" href="index.html" aria-label="Inicio" data-tooltip="Inicio">I</a>
+        <nav class="menu-lateral" aria-label="Accesos principales">
+            <a class="enlace-lateral enlace-activo" href="mis-guardados.html" aria-label="Mis guardados" data-tooltip="Mis guardados">◇</a>
+            <a class="enlace-lateral" href="subir.html" aria-label="Subir" data-tooltip="Subir">＋</a>
+            <a class="enlace-lateral" href="mi-cuenta.html" aria-label="Mi cuenta" data-tooltip="Mi cuenta">···</a>
+        </nav>
+        <a class="enlace-lateral ajustes" href="perfil.html" aria-label="Editar perfil" data-tooltip="Editar perfil">⚙</a>
+    </aside>
+
+    <header class="encabezado">
+        <nav class="navegacion" aria-label="Navegacion principal">
+            <a class="marca" href="index.html">Inspira</a>
+            <ul class="menu-principal">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="normas.html">Normas</a></li>
+                <li><a href="mi-cuenta.html">Mi cuenta</a></li>
+                <li><a href="subir.html">Subir</a></li>
+                <li><a href="login.html">Salir</a></li>
+            </ul>
+            <div class="perfil-desplegable">
+                <button class="usuario-activo boton-perfil" type="button" aria-label="Abrir menu de perfil" aria-expanded="false">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Foto de perfil de Josue Ramirez">
+                    <span class="perfil-alias">@josue.visual</span>
+                    <span class="perfil-flecha" aria-hidden="true">⌄</span>
+                </button>
+                <div class="menu-perfil">
+                    <a href="mi-cuenta.html">Mi cuenta</a>
+                    <a href="mis-guardados.html">Mis guardados</a>
+                    <a href="perfil.html">Editar perfil</a>
+                    <a class="salir" href="login.html">Salir</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <section class="cabecera-guardados" aria-labelledby="titulo-guardados">
+            <p class="etiqueta">Coleccion personal</p>
+            <h1 id="titulo-guardados">Mis guardados</h1>
+            <p>Publicaciones que el usuario guardo para ver despues o usar como referencia.</p>
+        </section>
+
+        <section class="filtros-guardados" aria-label="Filtros de guardados">
+            <a class="filtro-activo" href="#">Todos</a>
+            <a href="#">Deportes</a>
+            <a href="#">Casas</a>
+            <a href="#">Edificios</a>
+            <a href="#">Caballos</a>
+            <a href="#">Ropa de hombre</a>
+            <a href="#">Paisajes</a>
+        </section>
+
+        <section class="galeria-guardados" aria-label="Galeria de publicaciones guardadas">
+            <article class="tarjeta-guardada tarjeta-alta">
+                <a href="detalle.html">
+                    <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=700&q=80" alt="Jugador de futbol en una cancha">
+                </a>
+                <div class="contenido-tarjeta">
+                    <h2>Futbol en accion</h2>
+                    <p>Guardado desde Deportes</p>
+                    <button type="button">Quitar</button>
+                </div>
+            </article>
+
+            <article class="tarjeta-guardada tarjeta-mediana">
+                <a href="detalle.html">
+                    <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=700&q=80" alt="Casa moderna rodeada de jardin">
+                </a>
+                <div class="contenido-tarjeta">
+                    <h2>Casa familiar</h2>
+                    <p>Guardado desde Casas</p>
+                    <button type="button">Quitar</button>
+                </div>
+            </article>
+
+            <article class="tarjeta-guardada tarjeta-baja">
+                <a href="detalle.html">
+                    <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=700&q=80" alt="Caballo corriendo en el campo">
+                </a>
+                <div class="contenido-tarjeta">
+                    <h2>Caballo en campo</h2>
+                    <p>Guardado desde Caballos</p>
+                    <button type="button">Quitar</button>
+                </div>
+            </article>
+
+            <article class="tarjeta-guardada tarjeta-extra-alta">
+                <a href="detalle.html">
+                    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=700&q=80" alt="Paisaje de montanas">
+                </a>
+                <div class="contenido-tarjeta">
+                    <h2>Paisaje de montana</h2>
+                    <p>Guardado desde Paisajes</p>
+                    <button type="button">Quitar</button>
+                </div>
+            </article>
+
+            <article class="tarjeta-guardada tarjeta-mediana">
+                <a href="detalle.html">
+                    <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=700&q=80" alt="Arquitectura geometrica moderna">
+                </a>
+                <div class="contenido-tarjeta">
+                    <h2>Arquitectura moderna</h2>
+                    <p>Guardado desde Edificios</p>
+                    <button type="button">Quitar</button>
+                </div>
+            </article>
+
+            <article class="tarjeta-guardada tarjeta-alta">
+                <a href="detalle.html">
+                    <img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=700&q=80" alt="Ropa de hombre en estilo formal">
+                </a>
+                <div class="contenido-tarjeta">
+                    <h2>Estilo formal hombre</h2>
+                    <p>Guardado desde Ropa de hombre</p>
+                    <button type="button">Quitar</button>
+                </div>
+            </article>
+        </section>
+    </main>
+    <script src="js/comun.js?v=2"></script>
+    <script src="js/mis-guardados.js"></script>
+</body>
+</html>

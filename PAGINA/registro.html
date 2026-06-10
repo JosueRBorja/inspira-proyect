@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de usuario | Inspira</title>
+    <link rel="stylesheet" href="css/registro.css">
+</head>
+<body>
+    <header class="encabezado">
+        <nav class="navegacion" aria-label="Navegacion principal">
+            <a class="marca" href="index.html">Inspira</a>
+            <ul class="menu-principal">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="normas.html">Normas</a></li>
+                <li><a href="login.html">Ingresar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <section class="seccion-registro" aria-labelledby="titulo-registro">
+            <article class="tarjeta-presentacion">
+                <span class="etiqueta">Comunidad creativa</span>
+                <h1 id="titulo-registro">Crea tu cuenta y empieza a guardar ideas</h1>
+                <p>Explora imagenes, descubre estilos y comparte tus propias referencias visuales.</p>
+            </article>
+
+            <form class="formulario-registro" aria-label="Formulario de registro">
+                <h2>Registro de usuario</h2>
+
+                <label for="nombre">Nombre completo</label>
+                <input id="nombre" name="nombre" type="text" placeholder="Ej. Josue Mendoza">
+
+                <label for="correo">Correo electronico</label>
+                <input id="correo" name="correo" type="email" placeholder="usuario@correo.com">
+
+                <label for="usuario">Nombre de usuario</label>
+                <input id="usuario" name="usuario" type="text" placeholder="@usuario">
+
+                <label for="contrasena">Contraseña</label>
+                <input id="contrasena" name="contrasena" type="password" placeholder="Minimo 8 caracteres">
+
+                <label for="confirmar">Confirmar contraseña</label>
+                <input id="confirmar" name="confirmar" type="password" placeholder="Repite tu contraseña">
+
+                <label class="aceptacion-normas" for="aceptar-normas">
+                    <input id="aceptar-normas" name="aceptarNormas" type="checkbox">
+                    <span>Acepta las <a href="normas.html">normas y condiciones</a>.</span>
+                </label>
+
+                <button type="submit">Crear cuenta</button>
+
+                <p class="texto-secundario">Ya tienes una cuenta? <a href="login.html">Inicia sesion</a></p>
+            </form>
+        </section>
+    </main>
+    <script src="js/comun.js"></script>
+    <script src="js/registro.js"></script>
+</body>
+</html>
