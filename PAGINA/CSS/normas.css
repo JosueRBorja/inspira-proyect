@@ -1,0 +1,297 @@
+/* Define variables globales de color y sombra. */
+:root {
+    /* Guarda el color principal del fondo. */
+    --color-fondo: #f8f5f1;
+    /* Guarda el color usado en superficies. */
+    --color-superficie: #ffffff;
+    /* Guarda el color principal del texto. */
+    --color-texto: #24211f;
+    /* Guarda el color secundario del texto. */
+    --color-suave: #716960;
+    /* Guarda el color principal de marca. */
+    --color-principal: #b8324b;
+    /* Guarda el color verde usado en etiquetas. */
+    --color-verde: #236967;
+    /* Guarda el color de los bordes. */
+    --color-borde: #e5dbd2;
+    /* Guarda la sombra reutilizable de los paneles. */
+    --sombra: 0 18px 42px rgba(49, 38, 31, 0.13);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Aplica reglas generales a todos los elementos. */
+* {
+    /* Mantiene el tamano calculado incluyendo borde y relleno. */
+    box-sizing: border-box;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona el cuerpo de la pagina. */
+body {
+    /* Elimina el margen predeterminado del navegador. */
+    margin: 0;
+    /* Define la familia tipografica principal. */
+    font-family: Arial, Helvetica, sans-serif;
+    /* Define el color del texto. */
+    color: var(--color-texto);
+    /* Define el fondo visual de la pagina. */
+    background: var(--color-fondo);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Estiliza el encabezado superior. */
+.encabezado {
+    /* Define el fondo del encabezado. */
+    background: var(--color-superficie);
+    /* Define el borde inferior del encabezado. */
+    border-bottom: 1px solid var(--color-borde);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Organiza la navegacion principal. */
+.navegacion {
+    /* Limita el ancho del contenido. */
+    width: min(1080px, calc(100% - 32px));
+    /* Define la altura minima de la navegacion. */
+    min-height: 72px;
+    /* Centra la navegacion horizontalmente. */
+    margin: 0 auto;
+    /* Activa flexbox para organizar elementos. */
+    display: flex;
+    /* Alinea verticalmente los elementos. */
+    align-items: center;
+    /* Separa los elementos internos. */
+    gap: 20px;
+    /* Distribuye los elementos a los extremos. */
+    justify-content: space-between;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Estiliza el nombre de la marca. */
+.marca {
+    /* Define el color de marca. */
+    color: var(--color-principal);
+    /* Define el tamano del texto. */
+    font-size: 1.5rem;
+    /* Define el grosor del texto. */
+    font-weight: 800;
+    /* Quita el subrayado del enlace. */
+    text-decoration: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Organiza el menu superior. */
+.menu-principal {
+    /* Activa flexbox en la lista. */
+    display: flex;
+    /* Define la separacion entre enlaces. */
+    gap: 18px;
+    /* Elimina el relleno predeterminado. */
+    padding: 0;
+    /* Elimina el margen predeterminado. */
+    margin: 0;
+    /* Quita las viñetas de la lista. */
+    list-style: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Estiliza los enlaces del menu. */
+.menu-principal a {
+    /* Define el color del enlace. */
+    color: var(--color-texto);
+    /* Define el grosor del enlace. */
+    font-weight: 800;
+    /* Quita el subrayado. */
+    text-decoration: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define el contenedor principal. */
+.contenido-principal {
+    /* Limita el ancho del contenido. */
+    width: min(1120px, calc(100% - 32px));
+    /* Centra el contenido. */
+    margin: 0 auto;
+    /* Define el espacio interno vertical. */
+    padding: 36px 0 56px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Separa la cabecera de normas. */
+.cabecera-normas {
+    /* Define el margen inferior. */
+    margin-bottom: 28px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Estiliza la etiqueta superior. */
+.etiqueta {
+    /* Define el margen del texto. */
+    margin: 0 0 10px;
+    /* Define el color de la etiqueta. */
+    color: var(--color-verde);
+    /* Define el grosor del texto. */
+    font-weight: 800;
+    /* Convierte el texto a mayusculas. */
+    text-transform: uppercase;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Estiliza el titulo principal. */
+.cabecera-normas h1 {
+    /* Define el ancho maximo del titulo. */
+    max-width: 720px;
+    /* Define el margen del titulo. */
+    margin: 0 0 12px;
+    /* Define el tamano responsivo del titulo. */
+    font-size: clamp(2rem, 5vw, 3.7rem);
+    /* Define la altura de linea. */
+    line-height: 1;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Estiliza el texto introductorio. */
+.cabecera-normas p:last-child {
+    /* Define el ancho maximo del texto. */
+    max-width: 720px;
+    /* Define el margen del parrafo. */
+    margin: 0;
+    /* Define el color del texto secundario. */
+    color: var(--color-suave);
+    /* Define la altura de linea. */
+    line-height: 1.6;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Organiza los paneles de normas. */
+.paneles-normas {
+    /* Activa una grilla responsive. */
+    display: grid;
+    /* Define columnas adaptables al ancho. */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    /* Define la separacion entre paneles. */
+    gap: 20px;
+    /* Define el margen inferior. */
+    margin-bottom: 24px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Estiliza cada panel de normas. */
+.panel-norma,
+.mecanismos-eticos {
+    /* Define el fondo del panel. */
+    background: var(--color-superficie);
+    /* Define el borde del panel. */
+    border: 1px solid var(--color-borde);
+    /* Redondea las esquinas. */
+    border-radius: 8px;
+    /* Define el relleno interno. */
+    padding: 22px;
+    /* Aplica sombra visual. */
+    box-shadow: 0 14px 30px rgba(49, 38, 31, 0.09);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Estiliza los subtitulos. */
+.panel-norma h2,
+.mecanismos-eticos h2 {
+    /* Define el margen superior e inferior. */
+    margin: 0 0 16px;
+    /* Define el tamano del subtitulo. */
+    font-size: 1.2rem;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Estiliza las listas. */
+.panel-norma ul {
+    /* Define el margen de la lista. */
+    margin: 0;
+    /* Define el relleno izquierdo. */
+    padding-left: 20px;
+    /* Define el color del texto. */
+    color: var(--color-suave);
+    /* Define la altura de linea. */
+    line-height: 1.55;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Organiza los mecanismos eticos. */
+.lista-mecanismos {
+    /* Activa una grilla responsive. */
+    display: grid;
+    /* Define columnas adaptables al contenido. */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    /* Define la separacion entre articulos. */
+    gap: 16px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Estiliza cada mecanismo. */
+.lista-mecanismos article {
+    /* Define el fondo interno. */
+    background: #fbf8f5;
+    /* Define el borde interno. */
+    border: 1px solid var(--color-borde);
+    /* Redondea las esquinas. */
+    border-radius: 8px;
+    /* Define el relleno interno. */
+    padding: 18px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Estiliza el nombre del mecanismo. */
+.lista-mecanismos strong {
+    /* Muestra el texto en bloque. */
+    display: block;
+    /* Define el margen inferior. */
+    margin-bottom: 8px;
+    /* Define el color del texto. */
+    color: var(--color-principal);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Estiliza la descripcion del mecanismo. */
+.lista-mecanismos p {
+    /* Elimina el margen predeterminado. */
+    margin: 0;
+    /* Define el color del texto. */
+    color: var(--color-suave);
+    /* Define la altura de linea. */
+    line-height: 1.5;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Adapta el contenido a pantallas medianas. */
+@media (max-width: 920px) {
+    /* Ajusta las columnas de normas. */
+    .paneles-normas,
+    .lista-mecanismos {
+        /* Define dos columnas en pantallas medianas. */
+        grid-template-columns: repeat(2, 1fr);
+    /* Cierra el bloque de estilos actual. */
+    }
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Adapta el contenido a telefonos. */
+@media (max-width: 620px) {
+    /* Apila la navegacion. */
+    .navegacion {
+        /* Organiza los elementos en columna. */
+        flex-direction: column;
+        /* Alinea los elementos al inicio. */
+        align-items: flex-start;
+        /* Define el relleno vertical. */
+        padding: 16px 0;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Ajusta las columnas a una sola. */
+    .paneles-normas,
+    .lista-mecanismos {
+        /* Define una columna para telefono. */
+        grid-template-columns: 1fr;
+    /* Cierra el bloque de estilos actual. */
+    }
+/* Cierra el bloque de estilos actual. */
+}

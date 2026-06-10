@@ -1,0 +1,867 @@
+/* Define variables globales de color y sombra. */
+:root {
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-fondo: #f8f5f1;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-superficie: #ffffff;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-texto: #24211f;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-suave: #756d66;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-principal: #b8324b;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-verde: #236967;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-borde: #e4dad1;
+    /* Guarda un valor reutilizable para el diseno. */
+    --sombra: 0 12px 28px rgba(45, 35, 29, 0.12);
+    /* Guarda un valor reutilizable para el diseno. */
+    --sombra-hover: 0 22px 42px rgba(45, 35, 29, 0.2);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Aplica reglas generales a todos los elementos. */
+* {
+    /* Define una regla visual para la maqueta. */
+    box-sizing: border-box;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+body {
+    /* Define el espacio externo del elemento. */
+    margin: 0;
+    /* Define la familia tipografica del texto. */
+    font-family: Arial, Helvetica, sans-serif;
+    /* Define el color del texto. */
+    color: var(--color-texto);
+    /* Define el fondo visual del elemento. */
+    background: #ffffff;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.barra-lateral {
+    /* Define el tipo de posicionamiento del elemento. */
+    position: fixed;
+    /* Ubica el elemento dentro de la pagina. */
+    top: 0;
+    /* Ubica el elemento dentro de la pagina. */
+    left: 0;
+    /* Ubica el elemento dentro de la pagina. */
+    z-index: 20;
+    /* Define el ancho del elemento. */
+    width: 76px;
+    /* Define una dimension del elemento. */
+    height: 100vh;
+    /* Define el espacio interno del elemento. */
+    padding: 26px 0;
+    /* Define el borde del elemento. */
+    border-right: 1px solid #dedbd7;
+    /* Define el fondo visual del elemento. */
+    background: #ffffff;
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Organiza la distribucion de los elementos. */
+    flex-direction: column;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: center;
+    /* Define la separacion entre elementos. */
+    gap: 28px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.logo-lateral {
+    /* Define el tipo de posicionamiento del elemento. */
+    position: relative;
+    /* Define el ancho del elemento. */
+    width: 46px;
+    /* Define una dimension del elemento. */
+    height: 46px;
+    /* Define el borde del elemento. */
+    border-radius: 50%;
+    /* Define el color del texto. */
+    color: #ffffff;
+    /* Define el fondo visual del elemento. */
+    background: #bd081c;
+    /* Define el modelo de visualizacion del elemento. */
+    display: grid;
+    /* Alinea los elementos dentro de su contenedor. */
+    place-items: center;
+    /* Define el tamano del texto. */
+    font-size: 1.35rem;
+    /* Define el grosor del texto. */
+    font-weight: 900;
+    /* Define la presentacion del texto. */
+    text-decoration: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.menu-lateral {
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Organiza la distribucion de los elementos. */
+    flex-direction: column;
+    /* Define la separacion entre elementos. */
+    gap: 22px;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: center;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.enlace-lateral {
+    /* Define el tipo de posicionamiento del elemento. */
+    position: relative;
+    /* Define el ancho del elemento. */
+    width: 42px;
+    /* Define una dimension del elemento. */
+    height: 42px;
+    /* Define el borde del elemento. */
+    border-radius: 50%;
+    /* Define el color del texto. */
+    color: #111111;
+    /* Define el modelo de visualizacion del elemento. */
+    display: grid;
+    /* Alinea los elementos dentro de su contenedor. */
+    place-items: center;
+    /* Define el tamano del texto. */
+    font-size: 1.25rem;
+    /* Define el grosor del texto. */
+    font-weight: 900;
+    /* Define la presentacion del texto. */
+    text-decoration: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.enlace-lateral:hover {
+    /* Define el color del texto. */
+    color: #ffffff;
+    /* Define el fondo visual del elemento. */
+    background: #111111;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.enlace-activo {
+    /* Define el color del texto. */
+    color: #ffffff;
+    /* Define el fondo visual del elemento. */
+    background: #111111;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define una regla visual para la maqueta. */
+.enlace-lateral::after,
+/* Selecciona elementos para aplicar estilos. */
+.logo-lateral::after {
+    /* Inserta contenido generado por CSS. */
+    content: attr(data-tooltip);
+    /* Define el tipo de posicionamiento del elemento. */
+    position: absolute;
+    /* Ubica el elemento dentro de la pagina. */
+    left: 54px;
+    /* Ubica el elemento dentro de la pagina. */
+    top: 50%;
+    /* Aplica una transformacion visual al elemento. */
+    transform: translateY(-50%);
+    /* Define el ancho del elemento. */
+    width: max-content;
+    /* Define una dimension del elemento. */
+    max-width: 160px;
+    /* Define el espacio interno del elemento. */
+    padding: 8px 12px;
+    /* Define el borde del elemento. */
+    border-radius: 8px;
+    /* Define el color del texto. */
+    color: #ffffff;
+    /* Define el fondo visual del elemento. */
+    background: #111111;
+    /* Define el tamano del texto. */
+    font-size: 0.86rem;
+    /* Define el grosor del texto. */
+    font-weight: 800;
+    /* Define la altura de linea del texto. */
+    line-height: 1;
+    /* Controla la transparencia del elemento. */
+    opacity: 0;
+    /* Define una regla visual para la maqueta. */
+    pointer-events: none;
+    /* Define una animacion suave entre estados. */
+    transition: opacity 0.2s ease, transform 0.2s ease;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define una regla visual para la maqueta. */
+.enlace-lateral:hover::after,
+/* Selecciona elementos para aplicar estilos. */
+.logo-lateral:hover::after {
+    /* Controla la transparencia del elemento. */
+    opacity: 1;
+    /* Aplica una transformacion visual al elemento. */
+    transform: translate(6px, -50%);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.ajustes {
+    /* Define el espacio externo del elemento. */
+    margin-top: auto;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.pagina {
+    /* Define una dimension del elemento. */
+    min-height: 100vh;
+    /* Define el espacio externo del elemento. */
+    margin-left: 76px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.encabezado {
+    /* Define el tipo de posicionamiento del elemento. */
+    position: sticky;
+    /* Ubica el elemento dentro de la pagina. */
+    top: 0;
+    /* Ubica el elemento dentro de la pagina. */
+    z-index: 10;
+    /* Define el fondo visual del elemento. */
+    background: rgba(255, 255, 255, 0.98);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.navegacion {
+    /* Define una dimension del elemento. */
+    min-height: 98px;
+    /* Define el espacio interno del elemento. */
+    padding: 16px 36px;
+    /* Define el modelo de visualizacion del elemento. */
+    display: grid;
+    /* Organiza la distribucion de los elementos. */
+    grid-template-columns: 1fr auto auto;
+    /* Define la separacion entre elementos. */
+    gap: 20px;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: center;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.buscador {
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: center;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.buscador label {
+    /* Define el tipo de posicionamiento del elemento. */
+    position: absolute;
+    /* Define el ancho del elemento. */
+    width: 1px;
+    /* Define una dimension del elemento. */
+    height: 1px;
+    /* Controla el contenido que se sale del contenedor. */
+    overflow: hidden;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.buscador input {
+    /* Define el ancho del elemento. */
+    width: 100%;
+    /* Define una dimension del elemento. */
+    min-height: 64px;
+    /* Define el espacio interno del elemento. */
+    padding: 0 26px;
+    /* Define el borde del elemento. */
+    border: 0;
+    /* Define el borde del elemento. */
+    border-radius: 18px;
+    /* Define el fondo visual del elemento. */
+    background: #e7e5e1;
+    /* Define una regla visual para la maqueta. */
+    font: inherit;
+    /* Define el tamano del texto. */
+    font-size: 1.25rem;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.buscador input:focus {
+    /* Define el contorno visible al enfocar un elemento. */
+    outline: 4px solid rgba(35, 105, 103, 0.14);
+    /* Define el fondo visual del elemento. */
+    background: #ffffff;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.usuario-activo {
+    /* Define el ancho del elemento. */
+    width: 44px;
+    /* Define una dimension del elemento. */
+    height: 44px;
+    /* Define el borde del elemento. */
+    border-radius: 50%;
+    /* Define el color del texto. */
+    color: #2b182e;
+    /* Define el fondo visual del elemento. */
+    background: #efd4ff;
+    /* Define el modelo de visualizacion del elemento. */
+    display: grid;
+    /* Alinea los elementos dentro de su contenedor. */
+    place-items: center;
+    /* Define el tamano del texto. */
+    font-size: 1.05rem;
+    /* Define el grosor del texto. */
+    font-weight: 800;
+    /* Define la presentacion del texto. */
+    text-decoration: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.usuario-activo img {
+    /* Define el ancho del elemento. */
+    width: 44px;
+    /* Define una dimension del elemento. */
+    height: 44px;
+    /* Define el borde del elemento. */
+    border-radius: 50%;
+    /* Ajusta la imagen dentro de su contenedor. */
+    object-fit: cover;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.usuario-activo span {
+    /* Define el tipo de posicionamiento del elemento. */
+    position: absolute;
+    /* Define el ancho del elemento. */
+    width: 1px;
+    /* Define una dimension del elemento. */
+    height: 1px;
+    /* Controla el contenido que se sale del contenedor. */
+    overflow: hidden;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.salir {
+    /* Define el color del texto. */
+    color: #4d4a46;
+    /* Define el tamano del texto. */
+    font-size: 1.45rem;
+    /* Define el grosor del texto. */
+    font-weight: 800;
+    /* Define la presentacion del texto. */
+    text-decoration: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.contenido-principal {
+    /* Define el espacio interno del elemento. */
+    padding: 0 20px 56px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.categorias {
+    /* Define una dimension del elemento. */
+    min-height: 64px;
+    /* Define el espacio interno del elemento. */
+    padding: 6px 22px 18px;
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: center;
+    /* Define la separacion entre elementos. */
+    gap: 34px;
+    /* Controla el contenido que se sale del contenedor. */
+    overflow-x: auto;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.categorias a {
+    /* Define el tipo de posicionamiento del elemento. */
+    position: relative;
+    /* Organiza la distribucion de los elementos. */
+    flex: 0 0 auto;
+    /* Define el color del texto. */
+    color: #111111;
+    /* Define el tamano del texto. */
+    font-size: 1.12rem;
+    /* Define el grosor del texto. */
+    font-weight: 800;
+    /* Define la presentacion del texto. */
+    text-decoration: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.categoria-activa::after {
+    /* Inserta contenido generado por CSS. */
+    content: "";
+    /* Define el tipo de posicionamiento del elemento. */
+    position: absolute;
+    /* Ubica el elemento dentro de la pagina. */
+    left: 0;
+    /* Ubica el elemento dentro de la pagina. */
+    right: 0;
+    /* Ubica el elemento dentro de la pagina. */
+    bottom: -10px;
+    /* Define una dimension del elemento. */
+    height: 3px;
+    /* Define el borde del elemento. */
+    border-radius: 999px;
+    /* Define el fondo visual del elemento. */
+    background: #111111;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.galeria {
+    /* Organiza la distribucion de los elementos. */
+    column-count: 6;
+    /* Organiza la distribucion de los elementos. */
+    column-gap: 20px;
+    /* Define el espacio interno del elemento. */
+    padding: 8px 0 0;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.tarjeta-publicacion {
+    /* Define el tipo de posicionamiento del elemento. */
+    position: relative;
+    /* Define una regla visual para la maqueta. */
+    break-inside: avoid;
+    /* Define el espacio externo del elemento. */
+    margin-bottom: 30px;
+    /* Define el fondo visual del elemento. */
+    background: transparent;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.tarjeta-publicacion:hover {
+    /* Aplica una transformacion visual al elemento. */
+    transform: none;
+    /* Agrega sombra al elemento. */
+    box-shadow: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.enlace-imagen {
+    /* Define el tipo de posicionamiento del elemento. */
+    position: relative;
+    /* Define el modelo de visualizacion del elemento. */
+    display: block;
+    /* Controla el contenido que se sale del contenedor. */
+    overflow: hidden;
+    /* Define el borde del elemento. */
+    border-radius: 18px;
+    /* Define el fondo visual del elemento. */
+    background: #ddd2ca;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.enlace-imagen::after {
+    /* Inserta contenido generado por CSS. */
+    content: "";
+    /* Define el tipo de posicionamiento del elemento. */
+    position: absolute;
+    /* Ubica el elemento dentro de la pagina. */
+    inset: 0;
+    /* Define el fondo visual del elemento. */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.02) 40%, rgba(0, 0, 0, 0.22));
+    /* Controla la transparencia del elemento. */
+    opacity: 0;
+    /* Define una animacion suave entre estados. */
+    transition: opacity 0.25s ease;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.tarjeta-publicacion:hover .enlace-imagen::after {
+    /* Controla la transparencia del elemento. */
+    opacity: 1;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.tarjeta-publicacion img {
+    /* Define el ancho del elemento. */
+    width: 100%;
+    /* Define una dimension del elemento. */
+    height: 100%;
+    /* Define el modelo de visualizacion del elemento. */
+    display: block;
+    /* Ajusta la imagen dentro de su contenedor. */
+    object-fit: cover;
+    /* Define una animacion suave entre estados. */
+    transition: transform 0.35s ease, filter 0.25s ease;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.tarjeta-publicacion:hover img {
+    /* Define una regla visual para la maqueta. */
+    filter: brightness(0.72) saturate(1.06);
+    /* Aplica una transformacion visual al elemento. */
+    transform: scale(1.04);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.tarjeta-baja .enlace-imagen {
+    /* Define una dimension del elemento. */
+    height: 168px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.tarjeta-mediana .enlace-imagen {
+    /* Define una dimension del elemento. */
+    height: 288px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.tarjeta-alta .enlace-imagen {
+    /* Define una dimension del elemento. */
+    height: 445px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.tarjeta-extra-alta .enlace-imagen {
+    /* Define una dimension del elemento. */
+    height: 560px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.boton-guardar {
+    /* Define el tipo de posicionamiento del elemento. */
+    position: absolute;
+    /* Ubica el elemento dentro de la pagina. */
+    top: 14px;
+    /* Ubica el elemento dentro de la pagina. */
+    right: 14px;
+    /* Ubica el elemento dentro de la pagina. */
+    z-index: 2;
+    /* Define una dimension del elemento. */
+    min-height: 40px;
+    /* Define el espacio interno del elemento. */
+    padding: 0 16px;
+    /* Define el borde del elemento. */
+    border: 0;
+    /* Define el borde del elemento. */
+    border-radius: 999px;
+    /* Define el color del texto. */
+    color: #ffffff;
+    /* Define el fondo visual del elemento. */
+    background: var(--color-principal);
+    /* Define el modelo de visualizacion del elemento. */
+    display: inline-flex;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: center;
+    /* Alinea los elementos dentro de su contenedor. */
+    justify-content: center;
+    /* Define una regla visual para la maqueta. */
+    font: inherit;
+    /* Define el grosor del texto. */
+    font-weight: 800;
+    /* Define la presentacion del texto. */
+    text-decoration: none;
+    /* Controla la transparencia del elemento. */
+    opacity: 0;
+    /* Aplica una transformacion visual al elemento. */
+    transform: translateY(-8px);
+    /* Define una animacion suave entre estados. */
+    transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
+    /* Define el cursor al pasar sobre el elemento. */
+    cursor: pointer;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define una regla visual para la maqueta. */
+.tarjeta-publicacion:hover .boton-guardar,
+/* Selecciona elementos para aplicar estilos. */
+.tarjeta-publicacion:focus-within .boton-guardar {
+    /* Controla la transparencia del elemento. */
+    opacity: 1;
+    /* Aplica una transformacion visual al elemento. */
+    transform: translateY(0);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.boton-guardar:hover {
+    /* Define el fondo visual del elemento. */
+    background: #92243a;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.contenido-tarjeta {
+    /* Define el espacio interno del elemento. */
+    padding: 10px 8px 0;
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: flex-start;
+    /* Alinea los elementos dentro de su contenedor. */
+    justify-content: space-between;
+    /* Define la separacion entre elementos. */
+    gap: 10px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.contenido-tarjeta h2 {
+    /* Define el espacio externo del elemento. */
+    margin: 0 0 3px;
+    /* Define el tamano del texto. */
+    font-size: 0.98rem;
+    /* Define la altura de linea del texto. */
+    line-height: 1.2;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.contenido-tarjeta p {
+    /* Define el espacio externo del elemento. */
+    margin: 0;
+    /* Define el color del texto. */
+    color: var(--color-suave);
+    /* Define el tamano del texto. */
+    font-size: 0.9rem;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.boton-opciones {
+    /* Define el ancho del elemento. */
+    width: 34px;
+    /* Define una dimension del elemento. */
+    height: 28px;
+    /* Define el borde del elemento. */
+    border: 0;
+    /* Define el borde del elemento. */
+    border-radius: 999px;
+    /* Define el fondo visual del elemento. */
+    background: transparent;
+    /* Define el color del texto. */
+    color: #111111;
+    /* Define el tamano del texto. */
+    font-size: 1.2rem;
+    /* Define el grosor del texto. */
+    font-weight: 900;
+    /* Define la altura de linea del texto. */
+    line-height: 1;
+    /* Define el cursor al pasar sobre el elemento. */
+    cursor: pointer;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.boton-opciones:hover {
+    /* Define el fondo visual del elemento. */
+    background: #ece9e5;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define estilos para adaptar la pagina a otro tamano de pantalla. */
+@media (max-width: 1400px) {
+    /* Selecciona elementos para aplicar estilos. */
+    .galeria {
+        /* Organiza la distribucion de los elementos. */
+        column-count: 5;
+    /* Cierra el bloque de estilos actual. */
+    }
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define estilos para adaptar la pagina a otro tamano de pantalla. */
+@media (max-width: 1100px) {
+    /* Selecciona elementos para aplicar estilos. */
+    .galeria {
+        /* Organiza la distribucion de los elementos. */
+        column-count: 4;
+    /* Cierra el bloque de estilos actual. */
+    }
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define estilos para adaptar la pagina a otro tamano de pantalla. */
+@media (max-width: 900px) {
+    /* Selecciona elementos para aplicar estilos. */
+    .barra-lateral {
+        /* Define el tipo de posicionamiento del elemento. */
+        position: fixed;
+        /* Define el ancho del elemento. */
+        width: 64px;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .pagina {
+        /* Define el espacio externo del elemento. */
+        margin-left: 64px;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .navegacion {
+        /* Organiza la distribucion de los elementos. */
+        grid-template-columns: 1fr;
+        /* Define el espacio interno del elemento. */
+        padding: 16px 0;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .categorias {
+        /* Define el espacio interno del elemento. */
+        padding-left: 0;
+        /* Define el espacio interno del elemento. */
+        padding-right: 0;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .galeria {
+        /* Organiza la distribucion de los elementos. */
+        column-count: 3;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Define una regla visual para la maqueta. */
+    .enlace-lateral::after,
+    /* Selecciona elementos para aplicar estilos. */
+    .logo-lateral::after {
+        /* Define el modelo de visualizacion del elemento. */
+        display: none;
+    /* Cierra el bloque de estilos actual. */
+    }
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define estilos para adaptar la pagina a otro tamano de pantalla. */
+@media (max-width: 680px) {
+    /* Selecciona elementos para aplicar estilos. */
+    .galeria {
+        /* Organiza la distribucion de los elementos. */
+        column-count: 2;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .contenido-principal {
+        /* Define el espacio interno del elemento. */
+        padding-left: 12px;
+        /* Define el espacio interno del elemento. */
+        padding-right: 12px;
+    /* Cierra el bloque de estilos actual. */
+    }
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define estilos para adaptar la pagina a otro tamano de pantalla. */
+@media (max-width: 520px) {
+    /* Selecciona elementos para aplicar estilos. */
+    .barra-lateral {
+        /* Ubica el elemento dentro de la pagina. */
+        top: auto;
+        /* Ubica el elemento dentro de la pagina. */
+        bottom: 0;
+        /* Define el ancho del elemento. */
+        width: 100%;
+        /* Define una dimension del elemento. */
+        height: 62px;
+        /* Define el espacio interno del elemento. */
+        padding: 0 10px;
+        /* Define el borde del elemento. */
+        border-top: 1px solid #dedbd7;
+        /* Define el borde del elemento. */
+        border-right: 0;
+        /* Organiza la distribucion de los elementos. */
+        flex-direction: row;
+        /* Alinea los elementos dentro de su contenedor. */
+        justify-content: center;
+        /* Define la separacion entre elementos. */
+        gap: 10px;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .pagina {
+        /* Define el espacio externo del elemento. */
+        margin-left: 0;
+        /* Define el espacio interno del elemento. */
+        padding-bottom: 72px;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .logo-lateral {
+        /* Define el ancho del elemento. */
+        width: 38px;
+        /* Define una dimension del elemento. */
+        height: 38px;
+        /* Define el tamano del texto. */
+        font-size: 1rem;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .menu-lateral {
+        /* Organiza la distribucion de los elementos. */
+        flex-direction: row;
+        /* Define la separacion entre elementos. */
+        gap: 8px;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .enlace-lateral {
+        /* Define el ancho del elemento. */
+        width: 38px;
+        /* Define una dimension del elemento. */
+        height: 38px;
+        /* Define el tamano del texto. */
+        font-size: 1.05rem;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .ajustes {
+        /* Define el espacio externo del elemento. */
+        margin-top: 0;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .galeria {
+        /* Organiza la distribucion de los elementos. */
+        column-count: 1;
+    /* Cierra el bloque de estilos actual. */
+    }
+/* Cierra el bloque de estilos actual. */
+}

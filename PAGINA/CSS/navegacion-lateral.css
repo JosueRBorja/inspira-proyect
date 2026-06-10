@@ -1,0 +1,257 @@
+/* Selecciona elementos para aplicar estilos. */
+.barra-lateral {
+    /* Define el tipo de posicionamiento del elemento. */
+    position: fixed;
+    /* Ubica el elemento dentro de la pagina. */
+    top: 0;
+    /* Ubica el elemento dentro de la pagina. */
+    left: 0;
+    /* Ubica el elemento dentro de la pagina. */
+    z-index: 30;
+    /* Define el ancho del elemento. */
+    width: 76px;
+    /* Define una dimension del elemento. */
+    height: 100vh;
+    /* Define el espacio interno del elemento. */
+    padding: 26px 0;
+    /* Define el borde del elemento. */
+    border-right: 1px solid #dedbd7;
+    /* Define el fondo visual del elemento. */
+    background: #ffffff;
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Organiza la distribucion de los elementos. */
+    flex-direction: column;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: center;
+    /* Define la separacion entre elementos. */
+    gap: 28px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.logo-lateral {
+    /* Define el tipo de posicionamiento del elemento. */
+    position: relative;
+    /* Define el ancho del elemento. */
+    width: 46px;
+    /* Define una dimension del elemento. */
+    height: 46px;
+    /* Define el borde del elemento. */
+    border-radius: 50%;
+    /* Define el color del texto. */
+    color: #ffffff;
+    /* Define el fondo visual del elemento. */
+    background: #b4232a;
+    /* Define el modelo de visualizacion del elemento. */
+    display: grid;
+    /* Alinea los elementos dentro de su contenedor. */
+    place-items: center;
+    /* Define el tamano del texto. */
+    font-size: 1.35rem;
+    /* Define el grosor del texto. */
+    font-weight: 900;
+    /* Define la presentacion del texto. */
+    text-decoration: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.menu-lateral {
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Organiza la distribucion de los elementos. */
+    flex-direction: column;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: center;
+    /* Define la separacion entre elementos. */
+    gap: 22px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.enlace-lateral {
+    /* Define el tipo de posicionamiento del elemento. */
+    position: relative;
+    /* Define el ancho del elemento. */
+    width: 42px;
+    /* Define una dimension del elemento. */
+    height: 42px;
+    /* Define el borde del elemento. */
+    border-radius: 50%;
+    /* Define el color del texto. */
+    color: #111111;
+    /* Define el modelo de visualizacion del elemento. */
+    display: grid;
+    /* Alinea los elementos dentro de su contenedor. */
+    place-items: center;
+    /* Define el tamano del texto. */
+    font-size: 1.25rem;
+    /* Define el grosor del texto. */
+    font-weight: 900;
+    /* Define la presentacion del texto. */
+    text-decoration: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define una regla visual para la maqueta. */
+.enlace-lateral:hover,
+/* Selecciona elementos para aplicar estilos. */
+.enlace-activo {
+    /* Define el color del texto. */
+    color: #ffffff;
+    /* Define el fondo visual del elemento. */
+    background: #111111;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define una regla visual para la maqueta. */
+.enlace-lateral::after,
+/* Selecciona elementos para aplicar estilos. */
+.logo-lateral::after {
+    /* Inserta contenido generado por CSS. */
+    content: attr(data-tooltip);
+    /* Define el tipo de posicionamiento del elemento. */
+    position: absolute;
+    /* Ubica el elemento dentro de la pagina. */
+    left: 54px;
+    /* Ubica el elemento dentro de la pagina. */
+    top: 50%;
+    /* Aplica una transformacion visual al elemento. */
+    transform: translateY(-50%);
+    /* Define el ancho del elemento. */
+    width: max-content;
+    /* Define una dimension del elemento. */
+    max-width: 160px;
+    /* Define el espacio interno del elemento. */
+    padding: 8px 12px;
+    /* Define el borde del elemento. */
+    border-radius: 8px;
+    /* Define el color del texto. */
+    color: #ffffff;
+    /* Define el fondo visual del elemento. */
+    background: #111111;
+    /* Define el tamano del texto. */
+    font-size: 0.86rem;
+    /* Define el grosor del texto. */
+    font-weight: 800;
+    /* Define la altura de linea del texto. */
+    line-height: 1;
+    /* Controla la transparencia del elemento. */
+    opacity: 0;
+    /* Define una regla visual para la maqueta. */
+    pointer-events: none;
+    /* Define una animacion suave entre estados. */
+    transition: opacity 0.2s ease, transform 0.2s ease;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define una regla visual para la maqueta. */
+.enlace-lateral:hover::after,
+/* Selecciona elementos para aplicar estilos. */
+.logo-lateral:hover::after {
+    /* Controla la transparencia del elemento. */
+    opacity: 1;
+    /* Aplica una transformacion visual al elemento. */
+    transform: translate(6px, -50%);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.ajustes {
+    /* Define el espacio externo del elemento. */
+    margin-top: auto;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+body {
+    /* Define el espacio interno del elemento. */
+    padding-left: 76px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define estilos para adaptar la pagina a otro tamano de pantalla. */
+@media (max-width: 620px) {
+    /* Selecciona elementos para aplicar estilos. */
+    body {
+        /* Define el espacio interno del elemento. */
+        padding-left: 0;
+        /* Define el espacio interno del elemento. */
+        padding-bottom: 72px;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .barra-lateral {
+        /* Ubica el elemento dentro de la pagina. */
+        top: auto;
+        /* Ubica el elemento dentro de la pagina. */
+        bottom: 0;
+        /* Define el ancho del elemento. */
+        width: 100%;
+        /* Define una dimension del elemento. */
+        height: 62px;
+        /* Define el espacio interno del elemento. */
+        padding: 0 10px;
+        /* Define el borde del elemento. */
+        border-top: 1px solid #dedbd7;
+        /* Define el borde del elemento. */
+        border-right: 0;
+        /* Organiza la distribucion de los elementos. */
+        flex-direction: row;
+        /* Alinea los elementos dentro de su contenedor. */
+        justify-content: center;
+        /* Define la separacion entre elementos. */
+        gap: 10px;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .logo-lateral {
+        /* Define el ancho del elemento. */
+        width: 38px;
+        /* Define una dimension del elemento. */
+        height: 38px;
+        /* Define el tamano del texto. */
+        font-size: 1rem;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .menu-lateral {
+        /* Organiza la distribucion de los elementos. */
+        flex-direction: row;
+        /* Define la separacion entre elementos. */
+        gap: 8px;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .enlace-lateral {
+        /* Define el ancho del elemento. */
+        width: 38px;
+        /* Define una dimension del elemento. */
+        height: 38px;
+        /* Define el tamano del texto. */
+        font-size: 1.05rem;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .ajustes {
+        /* Define el espacio externo del elemento. */
+        margin-top: 0;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Define una regla visual para la maqueta. */
+    .enlace-lateral::after,
+    /* Selecciona elementos para aplicar estilos. */
+    .logo-lateral::after {
+        /* Define el modelo de visualizacion del elemento. */
+        display: none;
+    /* Cierra el bloque de estilos actual. */
+    }
+/* Cierra el bloque de estilos actual. */
+}

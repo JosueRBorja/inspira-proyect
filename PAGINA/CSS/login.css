@@ -1,0 +1,349 @@
+/* Define variables globales de color y sombra. */
+:root {
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-fondo: #f7f4f0;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-superficie: #ffffff;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-texto: #23201d;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-suave: #716960;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-principal: #b8324b;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-secundario: #236967;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-borde: #e5dbd2;
+    /* Guarda un valor reutilizable para el diseno. */
+    --sombra: 0 18px 45px rgba(49, 38, 31, 0.13);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Aplica reglas generales a todos los elementos. */
+* {
+    /* Define una regla visual para la maqueta. */
+    box-sizing: border-box;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Reseteo de estilos y configuración base */
+/* Selecciona elementos para aplicar estilos. */
+body {
+    /* Define el espacio externo del elemento. */
+    margin: 0;
+    /* Define la familia tipografica del texto. */
+    font-family: Arial, Helvetica, sans-serif;
+    /* Define el color del texto. */
+    color: var(--color-texto);
+    /* Define el fondo visual del elemento. */
+    background: var(--color-fondo);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.encabezado {
+    /* Define el fondo visual del elemento. */
+    background: var(--color-superficie);
+    /* Define el borde del elemento. */
+    border-bottom: 1px solid var(--color-borde);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.navegacion {
+    /* Define el ancho del elemento. */
+    width: min(1120px, calc(100% - 32px));
+    /* Define una dimension del elemento. */
+    min-height: 72px;
+    /* Define el espacio externo del elemento. */
+    margin: 0 auto;
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: center;
+    /* Alinea los elementos dentro de su contenedor. */
+    justify-content: space-between;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.marca {
+    /* Define el color del texto. */
+    color: var(--color-principal);
+    /* Define el tamano del texto. */
+    font-size: 1.5rem;
+    /* Define el grosor del texto. */
+    font-weight: 800;
+    /* Define la presentacion del texto. */
+    text-decoration: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.menu-principal {
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Define la separacion entre elementos. */
+    gap: 18px;
+    /* Define el espacio externo del elemento. */
+    margin: 0;
+    /* Define el espacio interno del elemento. */
+    padding: 0;
+    /* Quita o define el estilo de una lista. */
+    list-style: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.menu-principal a {
+    /* Define el color del texto. */
+    color: var(--color-texto);
+    /* Define el grosor del texto. */
+    font-weight: 700;
+    /* Define la presentacion del texto. */
+    text-decoration: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.contenido-principal {
+    /* Define una dimension del elemento. */
+    min-height: calc(100vh - 73px);
+    /* Define el espacio interno del elemento. */
+    padding: 42px 16px;
+    /* Define el modelo de visualizacion del elemento. */
+    display: grid;
+    /* Alinea los elementos dentro de su contenedor. */
+    place-items: center;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.seccion-login {
+    /* Define el ancho del elemento. */
+    width: min(940px, 100%);
+    /* Define el modelo de visualizacion del elemento. */
+    display: grid;
+    /* Organiza la distribucion de los elementos. */
+    grid-template-columns: 420px 1fr;
+    /* Define la separacion entre elementos. */
+    gap: 28px;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: stretch;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define una regla visual para la maqueta. */
+.formulario-login,
+/* Selecciona elementos para aplicar estilos. */
+.panel-destacado {
+    /* Define el borde del elemento. */
+    border-radius: 8px;
+    /* Agrega sombra al elemento. */
+    box-shadow: var(--sombra);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.formulario-login {
+    /* Define el espacio interno del elemento. */
+    padding: 36px;
+    /* Define el fondo visual del elemento. */
+    background: var(--color-superficie);
+    /* Define el borde del elemento. */
+    border: 1px solid var(--color-borde);
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Organiza la distribucion de los elementos. */
+    flex-direction: column;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.formulario-login h1 {
+    /* Define el espacio externo del elemento. */
+    margin: 0 0 10px;
+    /* Define el tamano del texto. */
+    font-size: 2rem;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.formulario-login p {
+    /* Define el espacio externo del elemento. */
+    margin: 0 0 28px;
+    /* Define el color del texto. */
+    color: var(--color-suave);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.formulario-login label {
+    /* Define el espacio externo del elemento. */
+    margin-bottom: 8px;
+    /* Define el color del texto. */
+    color: var(--color-suave);
+    /* Define el tamano del texto. */
+    font-size: 0.9rem;
+    /* Define el grosor del texto. */
+    font-weight: 700;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define una regla visual para la maqueta. */
+.formulario-login input[type="email"],
+/* Selecciona elementos para aplicar estilos. */
+.formulario-login input[type="password"] {
+    /* Define una dimension del elemento. */
+    min-height: 48px;
+    /* Define el espacio externo del elemento. */
+    margin-bottom: 18px;
+    /* Define el espacio interno del elemento. */
+    padding: 0 14px;
+    /* Define el borde del elemento. */
+    border: 1px solid var(--color-borde);
+    /* Define el borde del elemento. */
+    border-radius: 6px;
+    /* Define una regla visual para la maqueta. */
+    font: inherit;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.formulario-login input:focus {
+    /* Define el contorno visible al enfocar un elemento. */
+    outline: 3px solid rgba(35, 105, 103, 0.18);
+    /* Define el borde del elemento. */
+    border-color: var(--color-secundario);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.opciones-login {
+    /* Define el espacio externo del elemento. */
+    margin-bottom: 24px;
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: center;
+    /* Alinea los elementos dentro de su contenedor. */
+    justify-content: space-between;
+    /* Define la separacion entre elementos. */
+    gap: 12px;
+    /* Define el tamano del texto. */
+    font-size: 0.92rem;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.opcion-recordar {
+    /* Define el espacio externo del elemento. */
+    margin: 0;
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: center;
+    /* Define la separacion entre elementos. */
+    gap: 8px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define una regla visual para la maqueta. */
+.opciones-login a,
+/* Selecciona elementos para aplicar estilos. */
+.texto-secundario a {
+    /* Define el color del texto. */
+    color: var(--color-principal);
+    /* Define el grosor del texto. */
+    font-weight: 800;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.formulario-login button {
+    /* Define una dimension del elemento. */
+    min-height: 48px;
+    /* Define el borde del elemento. */
+    border: 0;
+    /* Define el borde del elemento. */
+    border-radius: 6px;
+    /* Define el color del texto. */
+    color: #ffffff;
+    /* Define el fondo visual del elemento. */
+    background: var(--color-principal);
+    /* Define una regla visual para la maqueta. */
+    font: inherit;
+    /* Define el grosor del texto. */
+    font-weight: 800;
+    /* Define el cursor al pasar sobre el elemento. */
+    cursor: pointer;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.formulario-login button:hover {
+    /* Define el fondo visual del elemento. */
+    background: #92243a;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.texto-secundario {
+    /* Define el espacio externo del elemento. */
+    margin: 20px 0 0;
+    /* Define la presentacion del texto. */
+    text-align: center;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.panel-destacado {
+    /* Define una dimension del elemento. */
+    min-height: 520px;
+    /* Define el espacio interno del elemento. */
+    padding: 42px;
+    /* Define el color del texto. */
+    color: #ffffff;
+    /* Define el fondo visual del elemento. */
+    background:
+        /* Define una regla visual para la maqueta. */
+        linear-gradient(rgba(16, 46, 45, 0.25), rgba(16, 46, 45, 0.7)),
+        /* Define una regla visual para la maqueta. */
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1100&q=80") center/cover;
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: flex-end;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.panel-destacado h2 {
+    /* Define una dimension del elemento. */
+    max-width: 420px;
+    /* Define el espacio externo del elemento. */
+    margin: 0;
+    /* Define el tamano del texto. */
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    /* Define la altura de linea del texto. */
+    line-height: 1.05;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define estilos para adaptar la pagina a otro tamano de pantalla. */
+@media (max-width: 820px) {
+    /* Selecciona elementos para aplicar estilos. */
+    .seccion-login {
+        /* Organiza la distribucion de los elementos. */
+        grid-template-columns: 1fr;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .panel-destacado {
+        /* Define una dimension del elemento. */
+        min-height: 280px;
+    /* Cierra el bloque de estilos actual. */
+    }
+/* Cierra el bloque de estilos actual. */
+}

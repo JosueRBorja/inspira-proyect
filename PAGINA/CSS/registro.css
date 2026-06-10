@@ -1,0 +1,398 @@
+/* Define variables globales de color y sombra. */
+:root {
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-fondo: #f6f3ee;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-superficie: #ffffff;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-texto: #25211d;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-suave: #736b62;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-principal: #b8324b;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-principal-oscuro: #92243a;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-borde: #e1d8cf;
+    /* Guarda un valor reutilizable para el diseno. */
+    --sombra: 0 20px 45px rgba(58, 44, 34, 0.14);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Aplica reglas generales a todos los elementos. */
+* {
+    /* Define una regla visual para la maqueta. */
+    box-sizing: border-box;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+body {
+    /* Define el espacio externo del elemento. */
+    margin: 0;
+    /* Define la familia tipografica del texto. */
+    font-family: Arial, Helvetica, sans-serif;
+    /* Define el color del texto. */
+    color: var(--color-texto);
+    /* Define el fondo visual del elemento. */
+    background: var(--color-fondo);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.encabezado {
+    /* Define el fondo visual del elemento. */
+    background: var(--color-superficie);
+    /* Define el borde del elemento. */
+    border-bottom: 1px solid var(--color-borde);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.navegacion {
+    /* Define el ancho del elemento. */
+    width: min(1120px, calc(100% - 32px));
+    /* Define el espacio externo del elemento. */
+    margin: 0 auto;
+    /* Define una dimension del elemento. */
+    min-height: 72px;
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: center;
+    /* Alinea los elementos dentro de su contenedor. */
+    justify-content: space-between;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.marca {
+    /* Define el color del texto. */
+    color: var(--color-principal);
+    /* Define el tamano del texto. */
+    font-size: 1.5rem;
+    /* Define el grosor del texto. */
+    font-weight: 800;
+    /* Define la presentacion del texto. */
+    text-decoration: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.menu-principal {
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Define la separacion entre elementos. */
+    gap: 18px;
+    /* Define el espacio interno del elemento. */
+    padding: 0;
+    /* Define el espacio externo del elemento. */
+    margin: 0;
+    /* Quita o define el estilo de una lista. */
+    list-style: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.menu-principal a {
+    /* Define el color del texto. */
+    color: var(--color-texto);
+    /* Define el grosor del texto. */
+    font-weight: 700;
+    /* Define la presentacion del texto. */
+    text-decoration: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.contenido-principal {
+    /* Define una dimension del elemento. */
+    min-height: calc(100vh - 73px);
+    /* Define el modelo de visualizacion del elemento. */
+    display: grid;
+    /* Alinea los elementos dentro de su contenedor. */
+    place-items: center;
+    /* Define el espacio interno del elemento. */
+    padding: 40px 16px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.seccion-registro {
+    /* Define el ancho del elemento. */
+    width: min(1040px, 100%);
+    /* Define el modelo de visualizacion del elemento. */
+    display: grid;
+    /* Organiza la distribucion de los elementos. */
+    grid-template-columns: 1fr 430px;
+    /* Define la separacion entre elementos. */
+    gap: 28px;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: stretch;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.tarjeta-presentacion {
+    /* Define una dimension del elemento. */
+    min-height: 560px;
+    /* Define el espacio interno del elemento. */
+    padding: 52px;
+    /* Define el borde del elemento. */
+    border-radius: 8px;
+    /* Define el color del texto. */
+    color: #ffffff;
+    /* Define el fondo visual del elemento. */
+    background:
+        /* Define una regla visual para la maqueta. */
+        linear-gradient(rgba(29, 22, 19, 0.35), rgba(29, 22, 19, 0.55)),
+        /* Define una regla visual para la maqueta. */
+        url("https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1200&q=80") center/cover;
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Organiza la distribucion de los elementos. */
+    flex-direction: column;
+    /* Alinea los elementos dentro de su contenedor. */
+    justify-content: flex-end;
+    /* Agrega sombra al elemento. */
+    box-shadow: var(--sombra);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.etiqueta {
+    /* Define el ancho del elemento. */
+    width: max-content;
+    /* Define el espacio interno del elemento. */
+    padding: 8px 12px;
+    /* Define el espacio externo del elemento. */
+    margin-bottom: 16px;
+    /* Define el borde del elemento. */
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    /* Define el borde del elemento. */
+    border-radius: 999px;
+    /* Define el tamano del texto. */
+    font-size: 0.85rem;
+    /* Define el grosor del texto. */
+    font-weight: 700;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.tarjeta-presentacion h1 {
+    /* Define una dimension del elemento. */
+    max-width: 560px;
+    /* Define el espacio externo del elemento. */
+    margin: 0 0 14px;
+    /* Define el tamano del texto. */
+    font-size: clamp(2rem, 5vw, 4rem);
+    /* Define la altura de linea del texto. */
+    line-height: 1;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.tarjeta-presentacion p {
+    /* Define una dimension del elemento. */
+    max-width: 500px;
+    /* Define el espacio externo del elemento. */
+    margin: 0;
+    /* Define el color del texto. */
+    color: rgba(255, 255, 255, 0.88);
+    /* Define el tamano del texto. */
+    font-size: 1.05rem;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.formulario-registro {
+    /* Define el espacio interno del elemento. */
+    padding: 34px;
+    /* Define el borde del elemento. */
+    border: 1px solid var(--color-borde);
+    /* Define el borde del elemento. */
+    border-radius: 8px;
+    /* Define el fondo visual del elemento. */
+    background: var(--color-superficie);
+    /* Agrega sombra al elemento. */
+    box-shadow: var(--sombra);
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Organiza la distribucion de los elementos. */
+    flex-direction: column;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.formulario-registro h2 {
+    /* Define el espacio externo del elemento. */
+    margin: 0 0 24px;
+    /* Define el tamano del texto. */
+    font-size: 1.6rem;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.formulario-registro label {
+    /* Define el espacio externo del elemento. */
+    margin-bottom: 7px;
+    /* Define el color del texto. */
+    color: var(--color-suave);
+    /* Define el tamano del texto. */
+    font-size: 0.9rem;
+    /* Define el grosor del texto. */
+    font-weight: 700;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.formulario-registro input {
+    /* Define el ancho del elemento. */
+    width: 100%;
+    /* Define una dimension del elemento. */
+    min-height: 46px;
+    /* Define el espacio externo del elemento. */
+    margin-bottom: 16px;
+    /* Define el espacio interno del elemento. */
+    padding: 0 14px;
+    /* Define el borde del elemento. */
+    border: 1px solid var(--color-borde);
+    /* Define el borde del elemento. */
+    border-radius: 6px;
+    /* Define el color del texto. */
+    color: var(--color-texto);
+    /* Define una regla visual para la maqueta. */
+    font: inherit;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.formulario-registro input:focus {
+    /* Define el contorno visible al enfocar un elemento. */
+    outline: 3px solid rgba(184, 50, 75, 0.18);
+    /* Define el borde del elemento. */
+    border-color: var(--color-principal);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Organiza el campo donde el usuario acepta las normas. */
+.aceptacion-normas {
+    /* Define el espacio externo del elemento. */
+    margin: 2px 0 18px;
+    /* Define el color del texto. */
+    color: var(--color-suave);
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: center;
+    /* Define la separacion entre elementos. */
+    gap: 12px;
+    /* Define la altura de linea del texto. */
+    line-height: 1.4;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Ajusta el checkbox de aceptacion de normas. */
+.aceptacion-normas input {
+    /* Define el ancho del elemento. */
+    width: 18px;
+    /* Define la altura del elemento. */
+    height: 18px;
+    /* Evita que el checkbox cambie de tamano. */
+    flex: 0 0 18px;
+    /* Define una dimension del elemento. */
+    min-height: auto;
+    /* Define el espacio externo del elemento. */
+    margin: 0;
+    /* Define el color activo del checkbox. */
+    accent-color: var(--color-principal);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Ordena el texto que acompana la aceptacion de normas. */
+.aceptacion-normas span {
+    /* Permite que el texto ocupe el espacio disponible. */
+    flex: 1;
+    /* Define el ancho minimo para que el texto pueda partirse bien. */
+    min-width: 0;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Resalta el enlace hacia las normas del sistema. */
+.aceptacion-normas a {
+    /* Define el color del texto. */
+    color: var(--color-principal);
+    /* Define el grosor del texto. */
+    font-weight: 800;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.formulario-registro button {
+    /* Define una dimension del elemento. */
+    min-height: 48px;
+    /* Define el espacio externo del elemento. */
+    margin-top: 6px;
+    /* Define el borde del elemento. */
+    border: 0;
+    /* Define el borde del elemento. */
+    border-radius: 6px;
+    /* Define el color del texto. */
+    color: #ffffff;
+    /* Define el fondo visual del elemento. */
+    background: var(--color-principal);
+    /* Define una regla visual para la maqueta. */
+    font: inherit;
+    /* Define el grosor del texto. */
+    font-weight: 800;
+    /* Define el cursor al pasar sobre el elemento. */
+    cursor: pointer;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.formulario-registro button:hover {
+    /* Define el fondo visual del elemento. */
+    background: var(--color-principal-oscuro);
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.texto-secundario {
+    /* Define el espacio externo del elemento. */
+    margin: 18px 0 0;
+    /* Define el color del texto. */
+    color: var(--color-suave);
+    /* Define la presentacion del texto. */
+    text-align: center;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.texto-secundario a {
+    /* Define el color del texto. */
+    color: var(--color-principal);
+    /* Define el grosor del texto. */
+    font-weight: 800;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Define estilos para adaptar la pagina a otro tamano de pantalla. */
+@media (max-width: 860px) {
+    /* Selecciona elementos para aplicar estilos. */
+    .seccion-registro {
+        /* Organiza la distribucion de los elementos. */
+        grid-template-columns: 1fr;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .tarjeta-presentacion {
+        /* Define una dimension del elemento. */
+        min-height: 340px;
+        /* Define el espacio interno del elemento. */
+        padding: 34px;
+    /* Cierra el bloque de estilos actual. */
+    }
+/* Cierra el bloque de estilos actual. */
+}
