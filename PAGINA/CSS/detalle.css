@@ -1,0 +1,635 @@
+
+/* Define una regla visual para la maqueta. */
+:root { /* Paleta de colores */
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-fondo: #f7f4ef;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-superficie: #ffffff;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-texto: #25211d;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-suave: #716960;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-principal: #b8324b;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-verde: #236967;
+    /* Guarda un valor reutilizable para el diseno. */
+    --color-borde: #e5dbd2;
+    /* Guarda un valor reutilizable para el diseno. */
+    --sombra: 0 20px 45px rgba(49, 38, 31, 0.14);
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Reseteo de estilos y configuración base */    
+/* Aplica reglas generales a todos los elementos. */
+* {
+    /* Define una regla visual para la maqueta. */
+    box-sizing: border-box;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para el cuerpo y elementos principales */
+/* Selecciona elementos para aplicar estilos. */
+body {
+    /* Define el espacio externo del elemento. */
+    margin: 0;
+    /* Define la familia tipografica del texto. */
+    font-family: Arial, Helvetica, sans-serif;
+    /* Define el color del texto. */
+    color: var(--color-texto);
+    /* Define el fondo visual del elemento. */
+    background: var(--color-fondo);
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para el encabezado y navegación */
+/* Selecciona elementos para aplicar estilos. */
+.encabezado {
+    /* Define el fondo visual del elemento. */
+    background: var(--color-superficie);
+    /* Define el borde del elemento. */
+    border-bottom: 1px solid var(--color-borde);
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para la navegación y marca */
+/* Selecciona elementos para aplicar estilos. */
+.navegacion {
+    /* Define el ancho del elemento. */
+    width: min(1180px, calc(100% - 32px));
+    /* Define una dimension del elemento. */
+    min-height: 72px;
+    /* Define el espacio externo del elemento. */
+    margin: 0 auto;
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: center;
+    /* Define la separacion entre elementos. */
+    gap: 20px;
+    /* Alinea los elementos dentro de su contenedor. */
+    justify-content: space-between;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para la marca y el menú principal */
+/* Selecciona elementos para aplicar estilos. */
+.marca {
+    /* Define el color del texto. */
+    color: var(--color-principal);
+    /* Define el tamano del texto. */
+    font-size: 1.5rem;
+    /* Define el grosor del texto. */
+    font-weight: 800;
+    /* Define la presentacion del texto. */
+    text-decoration: none;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para el menú principal y enlaces */
+/* Selecciona elementos para aplicar estilos. */
+.menu-principal {
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Define la separacion entre elementos. */
+    gap: 18px;
+    /* Define el espacio interno del elemento. */
+    padding: 0;
+    /* Define el espacio externo del elemento. */
+    margin: 0;
+    /* Quita o define el estilo de una lista. */
+    list-style: none;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para los enlaces del menú principal */
+/* Selecciona elementos para aplicar estilos. */
+.menu-principal a {
+    /* Define el color del texto. */
+    color: var(--color-texto);
+    /* Define el grosor del texto. */
+    font-weight: 800;
+    /* Define la presentacion del texto. */
+    text-decoration: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.usuario-activo {
+    /* Define una dimension del elemento. */
+    min-height: 44px;
+    /* Define el espacio interno del elemento. */
+    padding: 4px 12px 4px 4px;
+    /* Define el borde del elemento. */
+    border: 1px solid var(--color-borde);
+    /* Define el borde del elemento. */
+    border-radius: 999px;
+    /* Define el color del texto. */
+    color: var(--color-texto);
+    /* Define el fondo visual del elemento. */
+    background: var(--color-superficie);
+    /* Define el modelo de visualizacion del elemento. */
+    display: inline-flex;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: center;
+    /* Define la separacion entre elementos. */
+    gap: 9px;
+    /* Define el tamano del texto. */
+    font-size: 0.9rem;
+    /* Define el grosor del texto. */
+    font-weight: 800;
+    /* Define la presentacion del texto. */
+    text-decoration: none;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Selecciona elementos para aplicar estilos. */
+.usuario-activo img {
+    /* Define el ancho del elemento. */
+    width: 36px;
+    /* Define una dimension del elemento. */
+    height: 36px;
+    /* Define el borde del elemento. */
+    border-radius: 50%;
+    /* Ajusta la imagen dentro de su contenedor. */
+    object-fit: cover;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para el contenido principal y detalles de la publicación */
+/* Selecciona elementos para aplicar estilos. */
+.contenido-principal {
+    /* Define el ancho del elemento. */
+    width: min(1120px, calc(100% - 32px));
+    /* Define el espacio externo del elemento. */
+    margin: 0 auto;
+    /* Define el espacio interno del elemento. */
+    padding: 42px 0 58px;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para el detalle de la publicación y su estructura */
+/* Selecciona elementos para aplicar estilos. */
+.detalle-publicacion {
+    /* Define el modelo de visualizacion del elemento. */
+    display: grid;
+    /* Organiza la distribucion de los elementos. */
+    grid-template-columns: minmax(0, 1fr) 430px;
+    /* Controla el contenido que se sale del contenedor. */
+    overflow: hidden;
+    /* Define el borde del elemento. */
+    border-radius: 8px;
+    /* Define el fondo visual del elemento. */
+    background: var(--color-superficie);
+    /* Agrega sombra al elemento. */
+    box-shadow: var(--sombra);
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para la imagen destacada y su presentación */
+/* Selecciona elementos para aplicar estilos. */
+.imagen-destacada {
+    /* Define el espacio externo del elemento. */
+    margin: 0;
+    /* Define el fondo visual del elemento. */
+    background: #ddd2ca;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para la imagen destacada y su ajuste */
+/* Selecciona elementos para aplicar estilos. */
+.imagen-destacada img {
+    /* Define el ancho del elemento. */
+    width: 100%;
+    /* Define una dimension del elemento. */
+    height: 100%;
+    /* Define una dimension del elemento. */
+    min-height: 720px;
+    /* Define el modelo de visualizacion del elemento. */
+    display: block;
+    /* Ajusta la imagen dentro de su contenedor. */
+    object-fit: cover;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para la información de la publicación y su disposición */
+/* Selecciona elementos para aplicar estilos. */
+.informacion-publicacion {
+    /* Define el espacio interno del elemento. */
+    padding: 32px;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para la cabecera de la publicación y su organización */
+/* Selecciona elementos para aplicar estilos. */
+.cabecera-publicacion {
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: start;
+    /* Alinea los elementos dentro de su contenedor. */
+    justify-content: space-between;
+    /* Define la separacion entre elementos. */
+    gap: 18px;
+    /* Define el espacio externo del elemento. */
+    margin-bottom: 18px;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para la categoría de la publicación y su apariencia */
+/* Selecciona elementos para aplicar estilos. */
+.categoria {
+    /* Define el espacio externo del elemento. */
+    margin: 0 0 8px;
+    /* Define el color del texto. */
+    color: var(--color-verde);
+    /* Define el tamano del texto. */
+    font-size: 0.85rem;
+    /* Define el grosor del texto. */
+    font-weight: 800;
+    /* Define la presentacion del texto. */
+    text-transform: uppercase;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para el título de la publicación y su formato */
+/* Selecciona elementos para aplicar estilos. */
+.cabecera-publicacion h1 {
+    /* Define el espacio externo del elemento. */
+    margin: 0;
+    /* Define el tamano del texto. */
+    font-size: 2rem;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para los botones en la cabecera de la publicación y el formulario de comentarios */
+/* Define una regla visual para la maqueta. */
+.cabecera-publicacion .boton-guardar,
+/* Selecciona elementos para aplicar estilos. */
+.formulario-comentario button {
+    /* Define una dimension del elemento. */
+    min-height: 42px;
+    /* Define el espacio interno del elemento. */
+    padding: 0 18px;
+    /* Define el borde del elemento. */
+    border: 0;
+    /* Define el borde del elemento. */
+    border-radius: 999px;
+    /* Define el color del texto. */
+    color: #ffffff;
+    /* Define el fondo visual del elemento. */
+    background: var(--color-principal);
+    /* Define el modelo de visualizacion del elemento. */
+    display: inline-flex;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: center;
+    /* Alinea los elementos dentro de su contenedor. */
+    justify-content: center;
+    /* Define una regla visual para la maqueta. */
+    font: inherit;
+    /* Define el grosor del texto. */
+    font-weight: 800;
+    /* Define la presentacion del texto. */
+    text-decoration: none;
+    /* Define el cursor al pasar sobre el elemento. */
+    cursor: pointer;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para la descripción de la publicación y su legibilidad */
+/* Selecciona elementos para aplicar estilos. */
+.descripcion {
+    /* Define el espacio externo del elemento. */
+    margin: 0 0 24px;
+    /* Define el color del texto. */
+    color: var(--color-suave);
+    /* Define la altura de linea del texto. */
+    line-height: 1.6;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para el autor de la publicación, los comentarios y su disposición */
+/* Define una regla visual para la maqueta. */
+.autor,
+/* Selecciona elementos para aplicar estilos. */
+.comentario {
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: center;
+    /* Define la separacion entre elementos. */
+    gap: 14px;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para el autor de la publicación y los comentarios, con separación y bordes */
+/* Selecciona elementos para aplicar estilos. */
+.autor {
+    /* Define el espacio interno del elemento. */
+    padding: 18px 0;
+    /* Define el borde del elemento. */
+    border-top: 1px solid var(--color-borde);
+    /* Define el borde del elemento. */
+    border-bottom: 1px solid var(--color-borde);
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para las imágenes del autor y los comentarios, con forma circular y ajuste */
+/* Define una regla visual para la maqueta. */
+.autor img,
+/* Selecciona elementos para aplicar estilos. */
+.comentario img {
+    /* Define el ancho del elemento. */
+    width: 48px;
+    /* Define una dimension del elemento. */
+    height: 48px;
+    /* Define el borde del elemento. */
+    border-radius: 50%;
+    /* Ajusta la imagen dentro de su contenedor. */
+    object-fit: cover;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para los nombres del autor y los comentarios, con formato y separación */
+/* Define una regla visual para la maqueta. */
+.autor h2,
+/* Selecciona elementos para aplicar estilos. */
+.comentario h3 {
+    /* Define el espacio externo del elemento. */
+    margin: 0 0 4px;
+    /* Define el tamano del texto. */
+    font-size: 1rem;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para los párrafos del autor y los comentarios, con color suave y sin márgenes */
+/* Define una regla visual para la maqueta. */
+.autor p,
+/* Selecciona elementos para aplicar estilos. */
+.comentario p {
+    /* Define el espacio externo del elemento. */
+    margin: 0;
+    /* Define el color del texto. */
+    color: var(--color-suave);
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para la sección de comentarios, con separación y formato */
+/* Selecciona elementos para aplicar estilos. */
+.comentarios {
+    /* Define el espacio externo del elemento. */
+    margin-top: 28px;
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Organiza la distribucion de los elementos. */
+    flex-direction: column;
+    /* Define una dimension minima del elemento. */
+    min-height: 0;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para el encabezado de los comentarios, con formato y separación */
+/* Selecciona elementos para aplicar estilos. */
+.comentarios > h2 {
+    /* Define el espacio externo del elemento. */
+    margin: 0 0 18px;
+    /* Define el tamano del texto. */
+    font-size: 1.3rem;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una lista desplazable para los comentarios. */
+.lista-comentarios {
+    /* Define el espacio interno del elemento. */
+    padding: 12px 10px 12px 0;
+    /* Permite el desplazamiento vertical de los comentarios. */
+    overflow-y: scroll;
+    /* Evita que el desplazamiento se salga al documento principal. */
+    overscroll-behavior: contain;
+    /* Reserva espacio para que siempre se vea la barra lateral. */
+    scrollbar-gutter: stable;
+    /* Define una dimension fija del elemento. */
+    height: 260px;
+    /* Define una dimension minima del elemento. */
+    min-height: 260px;
+    /* Define el borde del elemento. */
+    border: 1px solid var(--color-borde);
+    /* Define el borde del elemento. */
+    border-radius: 8px;
+    /* Define el fondo visual del elemento. */
+    background: #fffdfb;
+    /* Define el comportamiento del desplazamiento. */
+    scroll-behavior: smooth;
+    /* Mantiene el formulario visible fuera del desplazamiento. */
+    flex: 1 1 auto;
+    /* Personaliza la barra de desplazamiento en navegadores compatibles. */
+    scrollbar-color: var(--color-principal) #f0ebe5;
+    /* Personaliza el ancho de la barra en navegadores compatibles. */
+    scrollbar-width: thin;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Personaliza la barra de desplazamiento de los comentarios. */
+.lista-comentarios::-webkit-scrollbar {
+    /* Define el ancho del elemento. */
+    width: 8px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Personaliza el fondo de la barra de desplazamiento. */
+.lista-comentarios::-webkit-scrollbar-track {
+    /* Define el fondo visual del elemento. */
+    background: #f0ebe5;
+    /* Define el borde del elemento. */
+    border-radius: 999px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Personaliza el control de la barra de desplazamiento. */
+.lista-comentarios::-webkit-scrollbar-thumb {
+    /* Define el fondo visual del elemento. */
+    background: var(--color-principal);
+    /* Define el borde del elemento. */
+    border-radius: 999px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Cambia el control de desplazamiento al pasar el mouse. */
+.lista-comentarios::-webkit-scrollbar-thumb:hover {
+    /* Define el fondo visual del elemento. */
+    background: var(--color-verde);
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para cada comentario, con alineación y separación */
+/* Selecciona elementos para aplicar estilos. */
+.comentario {
+    /* Alinea los elementos dentro de su contenedor. */
+    align-items: flex-start;
+    /* Define el espacio externo del elemento. */
+    margin-bottom: 18px;
+    /* Define el espacio interno del elemento. */
+    padding: 0 10px 0 12px;
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Quita espacio extra al ultimo comentario visible. */
+.comentario:last-child {
+    /* Define el espacio externo del elemento. */
+    margin-bottom: 0;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para el formulario de comentarios, con disposición y formato */
+/* Selecciona elementos para aplicar estilos. */
+.formulario-comentario {
+    /* Define el espacio externo del elemento. */
+    margin-top: 18px;
+    /* Define el espacio interno del elemento. */
+    padding-top: 16px;
+    /* Define el borde del elemento. */
+    border-top: 1px solid var(--color-borde);
+    /* Define el modelo de visualizacion del elemento. */
+    display: flex;
+    /* Organiza la distribucion de los elementos. */
+    flex-direction: column;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para las etiquetas del formulario de comentarios, con formato y color suave */
+/* Selecciona elementos para aplicar estilos. */
+.formulario-comentario label {
+    /* Define el espacio externo del elemento. */
+    margin-bottom: 8px;
+    /* Define el color del texto. */
+    color: var(--color-suave);
+    /* Define el grosor del texto. */
+    font-weight: 800;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para el área de texto del formulario de comentarios, con tamaño, bordes y formato */
+/* Selecciona elementos para aplicar estilos. */
+.formulario-comentario textarea {
+    /* Define el ancho del elemento. */
+    width: 100%;
+    /* Define el espacio externo del elemento. */
+    margin-bottom: 14px;
+    /* Define el espacio interno del elemento. */
+    padding: 14px;
+    /* Define el borde del elemento. */
+    border: 1px solid var(--color-borde);
+    /* Define el borde del elemento. */
+    border-radius: 8px;
+    /* Controla si el campo de texto puede cambiar de tamano. */
+    resize: vertical;
+    /* Define una regla visual para la maqueta. */
+    font: inherit;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para el botón del formulario de comentarios, con alineación y formato */
+/* Selecciona elementos para aplicar estilos. */
+.formulario-comentario button {
+    /* Alinea los elementos dentro de su contenedor. */
+    align-self: flex-start;
+/* Cierra el bloque de estilos actual. */
+}
+/* Define una regla visual para la maqueta. */
+/* Estilos para dispositivos con un ancho máximo de 900px, con ajustes en la disposición y tamaño de la imagen destacada */
+/* Define estilos para adaptar la pagina a otro tamano de pantalla. */
+@media (max-width: 900px) {
+    /* Selecciona elementos para aplicar estilos. */
+    .navegacion {
+        /* Alinea los elementos dentro de su contenedor. */
+        align-items: flex-start;
+        /* Organiza la distribucion de los elementos. */
+        flex-direction: column;
+        /* Define el espacio interno del elemento. */
+        padding: 16px 0;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .detalle-publicacion {
+        /* Organiza la distribucion de los elementos. */
+        grid-template-columns: 1fr;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Selecciona elementos para aplicar estilos. */
+    .imagen-destacada img {
+        /* Define una dimension del elemento. */
+        min-height: 420px;
+    /* Cierra el bloque de estilos actual. */
+    }
+
+    /* Ajusta la altura de la lista de comentarios en telefonos. */
+    .lista-comentarios {
+        /* Define una dimension fija del elemento. */
+        height: 300px;
+        /* Define una dimension minima del elemento. */
+        min-height: 300px;
+    /* Cierra el bloque de estilos actual. */
+    }
+/* Cierra el bloque de estilos actual. */
+}
+
+/* Fuerza la caja desplazable de comentarios. */
+.comentarios .lista-comentarios {
+    /* Muestra el contenedor como bloque independiente. */
+    display: block !important;
+    /* Define una altura fija para que aparezca el desplazamiento. */
+    height: 260px !important;
+    /* Evita que la lista crezca con todos los comentarios. */
+    max-height: 260px !important;
+    /* Mantiene la altura minima de la caja. */
+    min-height: 260px !important;
+    /* Fuerza la barra vertical aunque el navegador intente ocultarla. */
+    overflow-y: scroll !important;
+    /* Evita desplazamientos horizontales. */
+    overflow-x: hidden !important;
+    /* Separa los comentarios del borde. */
+    padding: 12px 12px 12px 0 !important;
+    /* Dibuja la caja visible de comentarios. */
+    border: 2px solid var(--color-borde) !important;
+    /* Redondea la caja de comentarios. */
+    border-radius: 8px !important;
+    /* Define un fondo claro para diferenciar la zona desplazable. */
+    background: #fffdfb !important;
+    /* Reserva espacio para la barra de desplazamiento. */
+    scrollbar-gutter: stable !important;
+    /* Define la barra de desplazamiento en navegadores compatibles. */
+    scrollbar-color: var(--color-principal) #f0ebe5 !important;
+    /* Reduce el ancho de la barra en navegadores compatibles. */
+    scrollbar-width: thin !important;
+}
+
+/* Asegura que cada comentario quede dentro de la caja desplazable. */
+.comentarios .lista-comentarios .comentario {
+    /* Separa cada comentario dentro del scroll. */
+    margin: 0 0 18px !important;
+    /* Agrega espacio lateral dentro de cada comentario. */
+    padding: 0 8px 0 12px !important;
+}
+
+/* Personaliza la barra visible en Chrome. */
+.comentarios .lista-comentarios::-webkit-scrollbar {
+    /* Define un ancho visible para la barra. */
+    width: 10px !important;
+}
+
+/* Personaliza el carril de la barra visible. */
+.comentarios .lista-comentarios::-webkit-scrollbar-track {
+    /* Da fondo al carril de desplazamiento. */
+    background: #f0ebe5 !important;
+    /* Redondea el carril. */
+    border-radius: 999px !important;
+}
+
+/* Personaliza el boton que sube y baja en la barra. */
+.comentarios .lista-comentarios::-webkit-scrollbar-thumb {
+    /* Da color principal al control de desplazamiento. */
+    background: var(--color-principal) !important;
+    /* Redondea el control de desplazamiento. */
+    border-radius: 999px !important;
+}

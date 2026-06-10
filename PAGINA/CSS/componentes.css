@@ -1,0 +1,192 @@
+/* Define estilos reutilizables para componentes compartidos. */
+.perfil-desplegable {
+    position: relative;
+    justify-self: end;
+}
+
+/* Convierte la foto de perfil en un control claro y compacto. */
+.usuario-activo.boton-perfil,
+.boton-perfil {
+    width: auto;
+    min-width: 0;
+    height: 52px;
+    padding: 6px 12px 6px 6px;
+    border: 1px solid #e2d8cf;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #24211f;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font: inherit;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(45, 35, 29, 0.08);
+}
+
+.boton-perfil img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: 0 0 auto;
+}
+
+.boton-perfil .perfil-alias {
+    position: static;
+    width: auto;
+    height: auto;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}
+
+.boton-perfil .perfil-flecha {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.boton-perfil:hover,
+.boton-perfil:focus {
+    outline: none;
+    border-color: #b43b50;
+    box-shadow: 0 10px 24px rgba(180, 59, 80, 0.16);
+}
+
+/* Oculta el menu hasta que el usuario abra el desplegable. */
+.menu-perfil {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 50;
+    width: 210px;
+    padding: 8px;
+    border: 1px solid #e2d8cf;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 18px 42px rgba(45, 35, 29, 0.18);
+    display: none;
+}
+
+.perfil-desplegable.abierto .menu-perfil {
+    display: grid;
+}
+
+.menu-perfil a {
+    padding: 12px 14px;
+    border-radius: 10px;
+    color: #24211f;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.menu-perfil a:hover,
+.menu-perfil a:focus {
+    outline: none;
+    background: #f7f1ed;
+    color: #a83248;
+}
+
+/* Normaliza el boton de opciones de las tarjetas. */
+.boton-opciones {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #5f5852;
+    display: inline-grid;
+    place-items: center;
+    font-size: 1.1rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.boton-opciones:hover,
+.boton-opciones:focus {
+    outline: none;
+    background: #f0ebe6;
+    color: #111111;
+}
+
+.contenido-tarjeta {
+    align-items: center;
+}
+
+.contenido-tarjeta > div {
+    min-width: 0;
+}
+
+/* Ajusta la navegacion superior en pantallas medianas y pequenas. */
+@media (max-width: 900px) {
+    .navegacion {
+        gap: 14px;
+    }
+
+    .boton-perfil {
+        height: 48px;
+        padding-right: 10px;
+    }
+
+    .boton-perfil .perfil-alias {
+        max-width: 118px;
+    }
+}
+
+@media (max-width: 620px) {
+    .navegacion {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+    }
+
+    .menu-principal {
+        grid-column: 1 / -1;
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+    }
+
+    .perfil-desplegable {
+        justify-self: end;
+    }
+
+    .boton-perfil {
+        width: 44px;
+        height: 44px;
+        padding: 2px;
+        justify-content: center;
+    }
+
+    .boton-perfil .perfil-alias,
+    .boton-perfil .perfil-flecha {
+        display: none;
+    }
+
+    .menu-perfil {
+        position: fixed;
+        top: 74px;
+        right: 14px;
+        left: 14px;
+        width: auto;
+    }
+
+    .boton-guardar {
+        min-height: 34px;
+        padding: 0 14px;
+        font-size: 0.9rem;
+    }
+
+    .boton-opciones {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+    }
+}
