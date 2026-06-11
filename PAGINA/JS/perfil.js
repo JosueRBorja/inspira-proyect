@@ -10,16 +10,16 @@ if (formularioPerfil) {
     let perfil = obtenerPerfilLocal();
 
     // Guarda el campo del nombre.
-    const nombre = formularioPerfil.querySelector("#nombre");
+    const nombre = seleccionar("#nombre", formularioPerfil);
 
     // Guarda el campo del alias.
-    const alias = formularioPerfil.querySelector("#alias");
+    const alias = seleccionar("#alias", formularioPerfil);
 
     // Guarda el campo de biografia.
-    const biografia = formularioPerfil.querySelector("#biografia");
+    const biografia = seleccionar("#biografia", formularioPerfil);
 
     // Guarda el campo de foto.
-    const foto = formularioPerfil.querySelector("#foto");
+    const foto = seleccionar("#foto", formularioPerfil);
 
     // Guarda el nombre visible en la vista previa.
     const vistaNombre = seleccionar(".tarjeta-usuario h4");
@@ -28,27 +28,27 @@ if (formularioPerfil) {
     const vistaAlias = seleccionar(".tarjeta-usuario p");
 
     // Carga el nombre guardado.
-    nombre.value = perfil.nombre;
+    $(nombre).val(perfil.nombre);
 
     // Carga el alias guardado.
-    alias.value = perfil.alias;
+    $(alias).val(perfil.alias);
 
     // Carga la biografia guardada.
-    biografia.value = perfil.biografia;
+    $(biografia).val(perfil.biografia);
 
     // Actualiza el nombre de la vista previa.
-    if (vistaNombre) vistaNombre.textContent = perfil.nombre;
+    if (vistaNombre) $(vistaNombre).text(perfil.nombre);
 
     // Actualiza el alias de la vista previa.
-    if (vistaAlias) vistaAlias.textContent = perfil.alias;
+    if (vistaAlias) $(vistaAlias).text(perfil.alias);
 
     // Recorre las imagenes que deben mostrar la foto del perfil.
     seleccionarTodos(".vista-previa img, .tarjeta-usuario img").forEach((imagen) => {
         // Coloca la foto guardada.
-        imagen.src = perfil.foto;
+        $(imagen).attr("src", perfil.foto);
 
         // Describe la imagen con el nombre del usuario.
-        imagen.alt = `Foto de perfil de ${perfil.nombre}`;
+        $(imagen).attr("alt", `Foto de perfil de ${perfil.nombre}`);
     });
 
     // Carga el perfil real desde la API.
@@ -62,27 +62,27 @@ if (formularioPerfil) {
             perfil = obtenerPerfilLocal();
 
             // Coloca el nombre recibido en el campo.
-            nombre.value = usuario.full_name;
+            $(nombre).val(usuario.full_name);
 
             // Coloca el alias recibido en el campo.
-            alias.value = usuario.alias;
+            $(alias).val(usuario.alias);
 
             // Coloca la biografia recibida en el campo.
-            biografia.value = usuario.biography || "";
+            $(biografia).val(usuario.biography || "");
 
             // Actualiza el nombre en la vista previa.
-            if (vistaNombre) vistaNombre.textContent = usuario.full_name;
+            if (vistaNombre) $(vistaNombre).text(usuario.full_name);
 
             // Actualiza el alias en la vista previa.
-            if (vistaAlias) vistaAlias.textContent = usuario.alias;
+            if (vistaAlias) $(vistaAlias).text(usuario.alias);
 
             // Actualiza las imagenes con la foto recibida.
             seleccionarTodos(".vista-previa img, .tarjeta-usuario img, .usuario-activo img").forEach((imagen) => {
                 // Coloca la foto del usuario.
-                imagen.src = convertirUrlArchivo(usuario.profile_photo_url);
+                $(imagen).attr("src", convertirUrlArchivo(usuario.profile_photo_url));
 
                 // Actualiza el texto alternativo.
-                imagen.alt = `Foto de perfil de ${usuario.full_name}`;
+                $(imagen).attr("alt", `Foto de perfil de ${usuario.full_name}`);
             });
         } catch (error) {
             // Muestra el error si la API no responde.
@@ -91,7 +91,7 @@ if (formularioPerfil) {
     }
 
     // Escucha cuando el usuario selecciona una nueva foto.
-    foto.addEventListener("change", () => {
+    $(foto).on("change", () => {
         // Guarda el archivo seleccionado.
         const archivo = foto.files[0];
 
@@ -104,7 +104,7 @@ if (formularioPerfil) {
         // Recorre las imagenes que deben mostrar la nueva foto.
         seleccionarTodos(".vista-previa img, .tarjeta-usuario img, .usuario-activo img").forEach((imagen) => {
             // Actualiza la imagen de vista previa.
-            imagen.src = urlTemporal;
+            $(imagen).attr("src", urlTemporal);
         });
 
         // Guarda la imagen temporal hasta enviar el formulario.
@@ -112,24 +112,24 @@ if (formularioPerfil) {
     });
 
     // Escucha los cambios del nombre.
-    nombre.addEventListener("input", () => {
+    $(nombre).on("input", () => {
         // Actualiza el nombre de vista previa.
-        if (vistaNombre) vistaNombre.textContent = nombre.value || "Nombre del usuario";
+        if (vistaNombre) $(vistaNombre).text($(nombre).val() || "Nombre del usuario");
     });
 
     // Escucha los cambios del alias.
-    alias.addEventListener("input", () => {
+    $(alias).on("input", () => {
         // Actualiza el alias de vista previa con arroba.
-        if (vistaAlias) vistaAlias.textContent = normalizarAlias(alias.value || "@usuario");
+        if (vistaAlias) $(vistaAlias).text(normalizarAlias($(alias).val() || "@usuario"));
     });
 
     // Escucha el envio del formulario.
-    formularioPerfil.addEventListener("submit", async (evento) => {
+    $(formularioPerfil).on("submit", async (evento) => {
         // Evita que se recargue la pagina.
         evento.preventDefault();
 
         // Verifica que el nombre y alias existan.
-        if (!nombre.value.trim() || !alias.value.trim()) {
+        if (!$(nombre).val().trim() || !$(alias).val().trim()) {
             // Avisa que faltan campos obligatorios.
             mostrarMensaje("El nombre y el alias son obligatorios.");
 
@@ -138,13 +138,13 @@ if (formularioPerfil) {
         }
 
         // Valida el nombre con las normas eticas.
-        if (!validarContenidoEtico(nombre.value, "nombre")) return;
+        if (!validarContenidoEtico($(nombre).val(), "nombre")) return;
 
         // Valida el alias con las normas eticas.
-        if (!validarContenidoEtico(alias.value, "alias")) return;
+        if (!validarContenidoEtico($(alias).val(), "alias")) return;
 
         // Valida la biografia con las normas eticas.
-        if (!validarContenidoEtico(biografia.value, "biografia")) return;
+        if (!validarContenidoEtico($(biografia).val(), "biografia")) return;
 
         // Intenta actualizar el perfil en la API.
         try {
@@ -152,9 +152,9 @@ if (formularioPerfil) {
             let usuarioActualizado = await apiJson(`/api/usuarios/${obtenerUsuarioIdActual()}`, {
                 method: "PATCH",
                 body: JSON.stringify({
-                    full_name: nombre.value.trim(),
-                    alias: normalizarAlias(alias.value),
-                    biography: biografia.value.trim()
+                    full_name: $(nombre).val().trim(),
+                    alias: normalizarAlias($(alias).val()),
+                    biography: $(biografia).val().trim()
                 })
             });
 

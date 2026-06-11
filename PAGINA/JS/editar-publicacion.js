@@ -16,7 +16,7 @@ let categoriasEdicion = [];
 // Verifica que el formulario exista.
 if (formularioEdicion) {
     // Guarda el campo para cambiar imagen.
-    const archivoEdicion = formularioEdicion.querySelector("#imagen");
+    const archivoEdicion = seleccionar("#imagen", formularioEdicion);
 
     // Guarda la imagen actual.
     const imagenActual = seleccionar(".imagen-actual img");
@@ -25,16 +25,16 @@ if (formularioEdicion) {
     const textoImagen = seleccionar(".imagen-actual figcaption");
 
     // Guarda el campo del titulo.
-    const tituloEdicion = formularioEdicion.querySelector("#titulo");
+    const tituloEdicion = seleccionar("#titulo", formularioEdicion);
 
     // Guarda el selector de categoria.
-    const categoriaEdicion = formularioEdicion.querySelector("#categoria");
+    const categoriaEdicion = seleccionar("#categoria", formularioEdicion);
 
     // Guarda el campo de descripcion.
-    const descripcionEdicion = formularioEdicion.querySelector("#descripcion");
+    const descripcionEdicion = seleccionar("#descripcion", formularioEdicion);
 
     // Guarda el campo de etiquetas.
-    const etiquetasEdicion = formularioEdicion.querySelector("#etiquetas");
+    const etiquetasEdicion = seleccionar("#etiquetas", formularioEdicion);
 
     // Carga categorias y publicacion actual desde la API.
     async function cargarEdicionApi() {
@@ -46,10 +46,10 @@ if (formularioEdicion) {
             // Coloca IDs reales en las opciones existentes.
             seleccionarTodos("#categoria option").forEach((opcion) => {
                 // Busca la categoria real por nombre.
-                const categoria = buscarCategoriaPorNombre(categoriasEdicion, opcion.textContent);
+                const categoria = buscarCategoriaPorNombre(categoriasEdicion, $(opcion).text());
 
                 // Guarda el ID real si se encontro.
-                if (categoria) opcion.value = categoria.id;
+                if (categoria) $(opcion).val(categoria.id);
             });
 
             // Obtiene la publicacion que se editara.
@@ -60,24 +60,24 @@ if (formularioEdicion) {
 
             // Actualiza la imagen actual.
             if (imagenActual) {
-                imagenActual.src = convertirUrlArchivo(publicacion.image_url);
-                imagenActual.alt = publicacion.title;
+                $(imagenActual).attr("src", convertirUrlArchivo(publicacion.image_url));
+                $(imagenActual).attr("alt", publicacion.title);
             }
 
             // Actualiza el texto de la imagen.
-            if (textoImagen) textoImagen.textContent = publicacion.title;
+            if (textoImagen) $(textoImagen).text(publicacion.title);
 
             // Actualiza el titulo.
-            if (tituloEdicion) tituloEdicion.value = publicacion.title;
+            if (tituloEdicion) $(tituloEdicion).val(publicacion.title);
 
             // Actualiza la descripcion.
-            if (descripcionEdicion) descripcionEdicion.value = publicacion.description || "";
+            if (descripcionEdicion) $(descripcionEdicion).val(publicacion.description || "");
 
             // Actualiza etiquetas.
-            if (etiquetasEdicion) etiquetasEdicion.value = publicacion.tags || "";
+            if (etiquetasEdicion) $(etiquetasEdicion).val(publicacion.tags || "");
 
             // Selecciona la categoria actual.
-            if (categoriaEdicion && publicacion.category_id) categoriaEdicion.value = String(publicacion.category_id);
+            if (categoriaEdicion && publicacion.category_id) $(categoriaEdicion).val(String(publicacion.category_id));
         } catch (error) {
             // Muestra el error si no se pudo cargar la edicion.
             mostrarMensaje(error.message);
@@ -87,7 +87,7 @@ if (formularioEdicion) {
     // Verifica que existan el campo de archivo y la imagen actual.
     if (archivoEdicion && imagenActual) {
         // Escucha cuando el usuario selecciona una imagen.
-        archivoEdicion.addEventListener("change", () => {
+        $(archivoEdicion).on("change", () => {
             // Guarda la imagen seleccionada.
             const imagen = archivoEdicion.files[0];
 
@@ -95,38 +95,38 @@ if (formularioEdicion) {
             if (!imagen) return;
 
             // Muestra la imagen seleccionada.
-            imagenActual.src = URL.createObjectURL(imagen);
+            $(imagenActual).attr("src", URL.createObjectURL(imagen));
 
             // Actualiza el texto alternativo.
-            imagenActual.alt = imagen.name;
+            $(imagenActual).attr("alt", imagen.name);
 
             // Muestra el nombre de la imagen nueva.
-            if (textoImagen) textoImagen.textContent = imagen.name;
+            if (textoImagen) $(textoImagen).text(imagen.name);
         });
     }
 
     // Verifica que existan el titulo y el texto de imagen.
     if (tituloEdicion && textoImagen) {
         // Escucha cambios del titulo.
-        tituloEdicion.addEventListener("input", () => {
+        $(tituloEdicion).on("input", () => {
             // Muestra el titulo como referencia de la imagen.
-            textoImagen.textContent = tituloEdicion.value || "Imagen actual";
+            $(textoImagen).text($(tituloEdicion).val() || "Imagen actual");
         });
     }
 
     // Escucha el envio del formulario.
-    formularioEdicion.addEventListener("submit", async (evento) => {
+    $(formularioEdicion).on("submit", async (evento) => {
         // Evita que la pagina se recargue.
         evento.preventDefault();
 
         // Valida el titulo con las normas eticas.
-        if (!validarContenidoEtico(tituloEdicion.value, "titulo")) return;
+        if (!validarContenidoEtico($(tituloEdicion).val(), "titulo")) return;
 
         // Valida la descripcion con las normas eticas.
-        if (descripcionEdicion && !validarContenidoEtico(descripcionEdicion.value, "descripcion")) return;
+        if (descripcionEdicion && !validarContenidoEtico($(descripcionEdicion).val(), "descripcion")) return;
 
         // Valida las etiquetas con las normas eticas.
-        if (etiquetasEdicion && !validarContenidoEtico(etiquetasEdicion.value, "etiquetas")) return;
+        if (etiquetasEdicion && !validarContenidoEtico($(etiquetasEdicion).val(), "etiquetas")) return;
 
         // Intenta guardar cambios en la API.
         try {
@@ -134,10 +134,10 @@ if (formularioEdicion) {
             await apiJson(`/api/publicaciones/${publicacionEdicionId}`, {
                 method: "PATCH",
                 body: JSON.stringify({
-                    title: tituloEdicion.value.trim(),
-                    description: descripcionEdicion ? descripcionEdicion.value.trim() : "",
-                    tags: etiquetasEdicion ? etiquetasEdicion.value.trim() : "",
-                    category_id: categoriaEdicion ? Number(categoriaEdicion.value) : null
+                    title: $(tituloEdicion).val().trim(),
+                    description: descripcionEdicion ? $(descripcionEdicion).val().trim() : "",
+                    tags: etiquetasEdicion ? $(etiquetasEdicion).val().trim() : "",
+                    category_id: categoriaEdicion ? Number($(categoriaEdicion).val()) : null
                 })
             });
 
@@ -174,7 +174,7 @@ const botonEliminarEdicion = seleccionar(".boton-eliminar");
 // Verifica que el boton exista.
 if (botonEliminarEdicion) {
     // Escucha el clic sobre eliminar.
-    botonEliminarEdicion.addEventListener("click", async () => {
+    $(botonEliminarEdicion).on("click", async () => {
         // Pide confirmacion antes de eliminar.
         if (!confirm("Seguro que quieres eliminar esta publicacion?")) return;
 

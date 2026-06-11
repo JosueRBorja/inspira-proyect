@@ -41,36 +41,42 @@ function pintarDetallePublicacion(publicacion) {
 
     // Actualiza la imagen principal.
     if (imagenPrincipal) {
-        imagenPrincipal.src = convertirUrlArchivo(publicacion.image_url);
-        imagenPrincipal.alt = publicacion.title;
+        $(imagenPrincipal).attr("src", convertirUrlArchivo(publicacion.image_url));
+        $(imagenPrincipal).attr("alt", publicacion.title);
     }
 
     // Actualiza la categoria visible.
-    if (categoria) categoria.textContent = publicacion.category ? publicacion.category.name : "Sin categoria";
+    if (categoria) $(categoria).text(publicacion.category ? publicacion.category.name : "Sin categoria");
 
     // Actualiza el titulo visible.
-    if (titulo) titulo.textContent = publicacion.title;
+    if (titulo) $(titulo).text(publicacion.title);
 
     // Actualiza la descripcion visible.
-    if (descripcion) descripcion.textContent = publicacion.description || "Sin descripcion.";
+    if (descripcion) $(descripcion).text(publicacion.description || "Sin descripcion.");
 
     // Actualiza la foto del autor.
     if (fotoAutor) {
-        fotoAutor.src = convertirUrlArchivo(publicacion.owner.profile_photo_url);
-        fotoAutor.alt = `Foto de perfil de ${publicacion.owner.full_name}`;
+        $(fotoAutor).attr("src", convertirUrlArchivo(publicacion.owner.profile_photo_url));
+        $(fotoAutor).attr("alt", `Foto de perfil de ${publicacion.owner.full_name}`);
     }
 
     // Actualiza el nombre del autor.
-    if (nombreAutor) nombreAutor.textContent = publicacion.owner.full_name;
+    if (nombreAutor) $(nombreAutor).text(publicacion.owner.full_name);
 
     // Actualiza la biografia del autor.
-    if (biografiaAutor) biografiaAutor.textContent = publicacion.owner.biography || publicacion.owner.alias;
+    if (biografiaAutor) $(biografiaAutor).text(publicacion.owner.biography || publicacion.owner.alias);
 }
 
 // Pinta los comentarios usando las tarjetas existentes.
 function pintarComentarios(comentarios) {
-    // Guarda las tarjetas de comentarios visibles.
-    const tarjetasComentario = seleccionarTodos(".comentario");
+    // Guarda el contenedor desplazable de comentarios.
+    const listaComentarios = seleccionar(".lista-comentarios");
+
+    // Detiene el pintado si no existe el contenedor.
+    if (!listaComentarios) return;
+
+    // Limpia los comentarios anteriores con jQuery.
+    $(listaComentarios).empty();
 
     // Obtiene el perfil actualizado del usuario activo.
     const perfilActual = obtenerPerfilLocal();
@@ -78,25 +84,40 @@ function pintarComentarios(comentarios) {
     // Obtiene el ID del usuario activo.
     const usuarioActualId = obtenerUsuarioIdActual();
 
-    // Recorre cada tarjeta para colocar comentarios reales.
-    tarjetasComentario.forEach((tarjeta, indice) => {
-        // Guarda el comentario correspondiente.
-        const comentario = comentarios[indice];
+    // Muestra un aviso cuando todavia no hay comentarios.
+    if (!comentarios.length) {
+        // Crea una tarjeta simple para el estado vacio.
+        const tarjetaVacia = $("<article>").addClass("comentario comentario-vacio");
 
-        // Oculta la tarjeta cuando no hay comentario.
-        if (!comentario) {
-            tarjeta.hidden = true;
-            return;
-        }
+        // Crea el texto del estado vacio.
+        const textoVacio = $("<p>").text("Todavia no hay comentarios.");
 
-        // Busca la imagen del autor del comentario.
-        const imagen = tarjeta.querySelector("img");
+        // Agrega el texto al contenedor.
+        tarjetaVacia.append(textoVacio);
 
-        // Busca el nombre del autor del comentario.
-        const nombre = tarjeta.querySelector("h3");
+        // Coloca la tarjeta dentro de la lista.
+        $(listaComentarios).append(tarjetaVacia);
 
-        // Busca el texto del comentario.
-        const texto = tarjeta.querySelector("p");
+        // Detiene el pintado.
+        return;
+    }
+
+    // Recorre cada comentario recibido por la API.
+    comentarios.forEach((comentario) => {
+        // Crea la tarjeta del comentario.
+        const tarjeta = $("<article>").addClass("comentario");
+
+        // Crea la imagen del autor.
+        const imagen = $("<img>");
+
+        // Crea el bloque de texto del comentario.
+        const cuerpo = $("<div>");
+
+        // Crea el nombre del autor.
+        const nombre = $("<h3>");
+
+        // Crea el texto del comentario.
+        const texto = $("<p>");
 
         // Verifica si el comentario pertenece al usuario activo.
         const esComentarioPropio = comentario.author_id === usuarioActualId;
@@ -107,21 +128,30 @@ function pintarComentarios(comentarios) {
         // Define el nombre que debe mostrarse en el comentario.
         const nombreComentario = esComentarioPropio ? perfilActual.nombre : comentario.author.full_name;
 
-        // Muestra la tarjeta.
-        tarjeta.hidden = false;
-
         // Actualiza la foto del autor.
-        if (imagen) {
-            imagen.src = fotoComentario;
-            imagen.alt = `Foto de perfil de ${nombreComentario}`;
-        }
+        imagen.attr("src", fotoComentario);
+        imagen.attr("alt", `Foto de perfil de ${nombreComentario}`);
 
         // Actualiza el nombre del autor.
-        if (nombre) nombre.textContent = nombreComentario;
+        nombre.text(nombreComentario);
 
         // Actualiza el contenido del comentario.
-        if (texto) texto.textContent = comentario.content;
+        texto.text(comentario.content);
+
+        // Agrega nombre y texto dentro del cuerpo.
+        cuerpo.append(nombre);
+        cuerpo.append(texto);
+
+        // Agrega la foto y el cuerpo dentro de la tarjeta.
+        tarjeta.append(imagen);
+        tarjeta.append(cuerpo);
+
+        // Coloca la tarjeta dentro de la lista.
+        $(listaComentarios).append(tarjeta);
     });
+
+    // Lleva la lista al inicio para mostrar los comentarios recientes.
+    $(listaComentarios).scrollTop(0);
 }
 
 // Carga el detalle de la publicacion desde la API.
@@ -151,7 +181,7 @@ const botonGuardarDetalle = seleccionar(".boton-guardar");
 // Verifica que el boton exista.
 if (botonGuardarDetalle) {
     // Escucha el clic sobre guardar.
-    botonGuardarDetalle.addEventListener("click", async (evento) => {
+    $(botonGuardarDetalle).on("click", async (evento) => {
         // Evita la navegacion automatica.
         evento.preventDefault();
 
@@ -181,15 +211,15 @@ const formularioComentario = seleccionar(".formulario-comentario");
 // Verifica que el formulario exista.
 if (formularioComentario) {
     // Escucha el envio del comentario.
-    formularioComentario.addEventListener("submit", async (evento) => {
+    $(formularioComentario).on("submit", async (evento) => {
         // Evita que se recargue la pagina.
         evento.preventDefault();
 
         // Guarda el campo del comentario.
-        const comentario = formularioComentario.querySelector("textarea");
+        const comentario = seleccionar("textarea", formularioComentario);
 
         // Verifica que el comentario tenga texto.
-        if (!comentario || !comentario.value.trim()) {
+        if (!comentario || !$(comentario).val().trim()) {
             // Avisa que falta el comentario.
             mostrarMensaje("Escribe un comentario antes de publicar.");
 
@@ -198,7 +228,7 @@ if (formularioComentario) {
         }
 
         // Valida el comentario con las normas eticas.
-        if (!validarContenidoEtico(comentario.value, "comentario")) return;
+        if (!validarContenidoEtico($(comentario).val(), "comentario")) return;
 
         // Intenta guardar el comentario en la API.
         try {
@@ -208,12 +238,12 @@ if (formularioComentario) {
                 body: JSON.stringify({
                     post_id: publicacionDetalleId,
                     author_id: obtenerUsuarioIdActual(),
-                    content: comentario.value.trim()
+                    content: $(comentario).val().trim()
                 })
             });
 
             // Limpia el campo despues de publicar.
-            comentario.value = "";
+            $(comentario).val("");
 
             // Recarga comentarios reales desde la API.
             const comentarios = await apiJson(`/api/comentarios/publicacion/${publicacionDetalleId}`);
