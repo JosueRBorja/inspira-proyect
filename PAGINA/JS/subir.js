@@ -23,13 +23,13 @@ async function cargarCategoriasSubida() {
         // Recorre las opciones existentes del select.
         seleccionarTodos("#categoria option").forEach((opcion) => {
             // No modifica la opcion para crear otra categoria.
-            if (opcion.value === "otra") return;
+            if ($(opcion).val() === "otra") return;
 
             // Busca la categoria real que coincide con la opcion.
-            const categoria = buscarCategoriaPorNombre(categoriasSubida, opcion.textContent);
+            const categoria = buscarCategoriaPorNombre(categoriasSubida, $(opcion).text());
 
             // Guarda el ID real como valor del option.
-            if (categoria) opcion.value = categoria.id;
+            if (categoria) $(opcion).val(categoria.id);
         });
     } catch (error) {
         // Avisa si no se pudieron consultar categorias.
@@ -40,22 +40,22 @@ async function cargarCategoriasSubida() {
 // Actualiza la visibilidad del campo de nueva categoria.
 function actualizarCampoOtraCategoria() {
     // Verifica si el usuario eligio otra categoria.
-    const usaOtraCategoria = selectorCategoria.value === "otra";
+    const usaOtraCategoria = $(selectorCategoria).val() === "otra";
 
     // Muestra u oculta el campo segun la opcion elegida.
-    grupoOtraCategoria.hidden = !usaOtraCategoria;
+    $(grupoOtraCategoria).prop("hidden", !usaOtraCategoria);
 
     // Marca el campo como obligatorio si se eligio otra categoria.
-    campoNuevaCategoria.required = usaOtraCategoria;
+    $(campoNuevaCategoria).prop("required", usaOtraCategoria);
 
     // Limpia el campo si el usuario vuelve a una categoria basica.
-    if (!usaOtraCategoria) campoNuevaCategoria.value = "";
+    if (!usaOtraCategoria) $(campoNuevaCategoria).val("");
 }
 
 // Verifica que existan los campos de categoria.
 if (selectorCategoria && grupoOtraCategoria && campoNuevaCategoria) {
     // Escucha el cambio de categoria.
-    selectorCategoria.addEventListener("change", actualizarCampoOtraCategoria);
+    $(selectorCategoria).on("change", actualizarCampoOtraCategoria);
 
     // Ejecuta la revision inicial del campo.
     actualizarCampoOtraCategoria();
@@ -70,7 +70,7 @@ const selectorArchivo = seleccionar(".selector-archivo");
 // Verifica que exista el campo de archivo.
 if (archivoSubida && selectorArchivo) {
     // Escucha cuando el usuario selecciona una imagen.
-    archivoSubida.addEventListener("change", () => {
+    $(archivoSubida).on("change", () => {
         // Guarda el archivo seleccionado.
         const imagen = archivoSubida.files[0];
 
@@ -81,13 +81,13 @@ if (archivoSubida && selectorArchivo) {
         const urlTemporal = URL.createObjectURL(imagen);
 
         // Coloca la imagen como fondo del selector.
-        selectorArchivo.style.backgroundImage = `linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)), url("${urlTemporal}")`;
+        $(selectorArchivo).css("background-image", `linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)), url("${urlTemporal}")`);
 
         // Busca el texto interno del selector.
-        const texto = selectorArchivo.querySelector("span");
+        const texto = seleccionar("span", selectorArchivo);
 
         // Muestra el nombre del archivo seleccionado.
-        if (texto) texto.textContent = imagen.name;
+        if (texto) $(texto).text(imagen.name);
     });
 }
 
@@ -97,24 +97,24 @@ const formularioSubida = seleccionar(".formulario-subida");
 // Verifica que el formulario exista.
 if (formularioSubida) {
     // Escucha el envio del formulario.
-    formularioSubida.addEventListener("submit", async (evento) => {
+    $(formularioSubida).on("submit", async (evento) => {
         // Evita que se recargue la pagina.
         evento.preventDefault();
 
         // Guarda el campo del titulo.
-        const titulo = formularioSubida.querySelector("#titulo");
+        const titulo = seleccionar("#titulo", formularioSubida);
 
         // Guarda el campo del archivo.
-        const archivo = formularioSubida.querySelector("#archivo");
+        const archivo = seleccionar("#archivo", formularioSubida);
 
         // Guarda el campo de categoria.
-        const categoria = formularioSubida.querySelector("#categoria");
+        const categoria = seleccionar("#categoria", formularioSubida);
 
         // Guarda el campo de nueva categoria.
-        const nuevaCategoria = formularioSubida.querySelector("#nueva-categoria");
+        const nuevaCategoria = seleccionar("#nueva-categoria", formularioSubida);
 
         // Guarda el campo de descripcion.
-        const descripcion = formularioSubida.querySelector("#descripcion");
+        const descripcion = seleccionar("#descripcion", formularioSubida);
 
         // Verifica que exista una imagen seleccionada.
         if (!archivo.files.length) {
@@ -126,7 +126,7 @@ if (formularioSubida) {
         }
 
         // Verifica que exista un titulo.
-        if (!titulo.value.trim()) {
+        if (!$(titulo).val().trim()) {
             // Avisa que falta el titulo.
             mostrarMensaje("Escribe un titulo para la publicacion.");
 
@@ -135,7 +135,7 @@ if (formularioSubida) {
         }
 
         // Verifica que se escriba una categoria nueva cuando se eligio esa opcion.
-        if (categoria.value === "otra" && !nuevaCategoria.value.trim()) {
+        if ($(categoria).val() === "otra" && !$(nuevaCategoria).val().trim()) {
             // Avisa que falta la categoria.
             mostrarMensaje("Escribe el nombre de la nueva categoria.");
 
@@ -144,26 +144,41 @@ if (formularioSubida) {
         }
 
         // Valida el titulo con las normas eticas.
-        if (!validarContenidoEtico(titulo.value, "titulo")) return;
+        if (!validarContenidoEtico($(titulo).val(), "titulo")) return;
 
         // Valida la descripcion con las normas eticas.
-        if (descripcion && !validarContenidoEtico(descripcion.value, "descripcion")) return;
+        if (descripcion && !validarContenidoEtico($(descripcion).val(), "descripcion")) return;
 
         // Valida la categoria nueva con las normas eticas.
-        if (nuevaCategoria && nuevaCategoria.value && !validarContenidoEtico(nuevaCategoria.value, "categoria")) return;
+        if (nuevaCategoria && $(nuevaCategoria).val() && !validarContenidoEtico($(nuevaCategoria).val(), "categoria")) return;
 
         // Intenta crear o usar la categoria y subir la publicacion.
         try {
+            // Guarda el valor de categoria que se enviara.
+            const valorCategoria = $(categoria).val();
+
+            // Guarda el texto visible de la categoria seleccionada.
+            const textoCategoria = $(categoria).find("option:selected").text().trim();
+
             // Guarda el ID de categoria que se enviara.
-            let categoryId = Number(categoria.value);
+            let categoryId = Number(valorCategoria);
 
             // Crea una categoria si el usuario eligio la opcion otra.
-            if (categoria.value === "otra") {
+            if (valorCategoria === "otra") {
                 // Obtiene o crea la categoria escrita.
-                const categoriaCreada = await obtenerOCrearCategoria(nuevaCategoria.value);
+                const categoriaCreada = await obtenerOCrearCategoria($(nuevaCategoria).val());
 
                 // Guarda el ID de la categoria creada.
                 categoryId = categoriaCreada.id;
+            }
+
+            // Busca o crea la categoria cuando el select todavia tiene texto en lugar de ID.
+            if (valorCategoria !== "otra" && !Number.isFinite(categoryId)) {
+                // Obtiene o crea la categoria seleccionada por nombre.
+                const categoriaEncontrada = await obtenerOCrearCategoria(textoCategoria);
+
+                // Guarda el ID real de la categoria.
+                categoryId = categoriaEncontrada.id;
             }
 
             // Prepara los datos de formulario para subir imagen.
@@ -173,16 +188,16 @@ if (formularioSubida) {
             datos.append("owner_id", obtenerUsuarioIdActual());
 
             // Agrega el titulo de la publicacion.
-            datos.append("title", titulo.value.trim());
+            datos.append("title", $(titulo).val().trim());
 
             // Agrega la descripcion.
-            datos.append("description", descripcion ? descripcion.value.trim() : "");
+            datos.append("description", descripcion ? $(descripcion).val().trim() : "");
 
             // Agrega la categoria.
             datos.append("category_id", categoryId);
 
             // Agrega etiquetas basicas con la categoria.
-            datos.append("tags", categoria.value === "otra" ? nuevaCategoria.value.trim() : categoria.options[categoria.selectedIndex].textContent);
+            datos.append("tags", valorCategoria === "otra" ? $(nuevaCategoria).val().trim() : textoCategoria);
 
             // Agrega la imagen seleccionada.
             datos.append("image", archivo.files[0]);

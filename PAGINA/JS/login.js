@@ -4,18 +4,18 @@ const formularioLogin = seleccionar(".formulario-login");
 // Verifica que el formulario exista en la pagina.
 if (formularioLogin) {
     // Escucha el envio del formulario.
-    formularioLogin.addEventListener("submit", async (evento) => {
+    $(formularioLogin).on("submit", async (evento) => {
         // Evita que la pagina se recargue.
         evento.preventDefault();
 
         // Guarda el campo del correo.
-        const correo = formularioLogin.querySelector("#correo");
+        const correo = seleccionar("#correo", formularioLogin);
 
         // Guarda el campo de la contrasena.
-        const contrasena = formularioLogin.querySelector("#contrasena");
+        const contrasena = seleccionar("#contrasena", formularioLogin);
 
         // Verifica que el usuario escriba ambos campos.
-        if (!correo.value.trim() || !contrasena.value.trim()) {
+        if (!$(correo).val().trim() || !$(contrasena).val().trim()) {
             // Avisa que faltan datos.
             mostrarMensaje("Completa el correo y la contrasena.");
 
@@ -29,8 +29,8 @@ if (formularioLogin) {
             const respuesta = await apiJson("/api/autenticacion/login", {
                 method: "POST",
                 body: JSON.stringify({
-                    email: correo.value.trim(),
-                    password: contrasena.value
+                    email: $(correo).val().trim(),
+                    password: $(contrasena).val()
                 })
             });
 

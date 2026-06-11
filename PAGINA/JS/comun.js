@@ -54,19 +54,46 @@ const palabrasNoPermitidas = [
         
 ];
 
-// Guarda el origen de la API cuando la pagina se sirve desde FastAPI.
-const API_BASE = "";
+// Detecta desde donde debe consumir la API.
+function obtenerBaseApi() {
+    // Guarda si la pagina se abrio como archivo local.
+    const esArchivoLocal = window.location.protocol === "file:";
 
-// Busca un elemento dentro del documento con querySelector.
-function seleccionar(selector) {
-    // Devuelve el primer elemento que coincide con el selector.
-    return document.querySelector(selector);
+    // Guarda si la pagina se esta probando en un servidor local.
+    const esHostLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
+
+    // Guarda los puertos que normalmente usa FastAPI durante las pruebas.
+    const puertosFastApi = ["8000", "8001", "8010", "8013", "8014", "8020", "8023", "8024", "8025", "8030"];
+
+    // Usa FastAPI en el puerto 8000 cuando se abre con archivo local.
+    if (esArchivoLocal) return "http://127.0.0.1:8000";
+
+    // Usa FastAPI en el puerto 8000 cuando la pagina viene de Live Server u otro puerto externo.
+    if (esHostLocal && window.location.port && !puertosFastApi.includes(window.location.port)) return "http://127.0.0.1:8000";
+
+    // Usa el mismo origen cuando FastAPI sirve los HTML.
+    return "";
 }
 
-// Busca varios elementos dentro del documento con querySelectorAll.
-function seleccionarTodos(selector) {
-    // Devuelve todos los elementos que coinciden con el selector.
-    return document.querySelectorAll(selector);
+// Guarda el origen de la API para todas las peticiones.
+const API_BASE = obtenerBaseApi();
+
+// Busca un elemento con jQuery y devuelve el nodo para mantener el codigo claro.
+function seleccionar(selector, contexto) {
+    // Usa jQuery dentro de un contexto cuando se recibe un contenedor.
+    const elementos = contexto ? $(contexto).find(selector) : $(selector);
+
+    // Devuelve el primer elemento encontrado.
+    return elementos.get(0);
+}
+
+// Busca varios elementos con jQuery y devuelve una lista de nodos.
+function seleccionarTodos(selector, contexto) {
+    // Usa jQuery para localizar todos los elementos solicitados.
+    const elementos = contexto ? $(contexto).find(selector) : $(selector);
+
+    // Devuelve los elementos como arreglo para poder recorrerlos.
+    return elementos.toArray();
 }
 
 // Muestra una alerta sencilla al usuario.
@@ -96,7 +123,7 @@ function convertirUrlArchivo(ruta) {
 // Convierte texto en un slug para categorias nuevas.
 function crearSlug(texto) {
     // Normaliza el texto y quita tildes.
-    const textoNormalizado = texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    const textoNormalizado = texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");// Reemplaza espacios y caracteres especiales por guiones, y quita guiones al inicio o final.
 
     // Devuelve el slug limpio para guardar en la API.
     return textoNormalizado.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -129,52 +156,67 @@ function cerrarSesionLocal() {
     localStorage.removeItem("usuarioId");
 }
 
-// Lee una respuesta JSON de la API y controla errores.
-async function leerRespuestaApi(respuesta) {
-    // Devuelve null cuando la API no envia cuerpo.
-    if (respuesta.status === 204) return null;
+// Obtiene un mensaje entendible desde un error de la API.
+function obtenerMensajeErrorApi(error) {
+    // Guarda la respuesta JSON cuando existe.
+    const respuesta = error.responseJSON;
 
-    // Convierte la respuesta en JSON.
-    const datos = await respuesta.json();
+    // Devuelve el mensaje de validacion cuando FastAPI envia una lista.
+    if (respuesta && Array.isArray(respuesta.detail)) return respuesta.detail[0]?.msg || "La API no pudo completar la accion.";
 
-    // Lanza un error cuando la API responde mal.
-    if (!respuesta.ok) {
-        // Obtiene el mensaje principal del error.
-        const detalle = Array.isArray(datos.detail) ? datos.detail[0]?.msg : datos.detail;
+    // Devuelve el detalle directo cuando FastAPI envia texto.
+    if (respuesta && respuesta.detail) return respuesta.detail;
 
-        // Detiene la operacion con un mensaje entendible.
-        throw new Error(detalle || "La API no pudo completar la accion.");
-    }
+    // Devuelve texto plano cuando no vino JSON.
+    if (error.responseText) return error.responseText;
 
-    // Devuelve los datos recibidos.
-    return datos;
+    // Devuelve un mensaje claro cuando no hay conexion.
+    if (error.status === 0) return "No se pudo conectar con la API. Levanta FastAPI y abre la pagina desde http://127.0.0.1:8000.";
+
+    // Devuelve un mensaje general para errores no esperados.
+    return "La API no pudo completar la accion.";
 }
 
-// Ejecuta una peticion JSON contra la API.
+// Ejecuta una peticion JSON contra la API usando jQuery.
 async function apiJson(ruta, opciones = {}) {
-    // Ejecuta la peticion con encabezados JSON.
-    const respuesta = await fetch(`${API_BASE}${ruta}`, {
-        ...opciones,
-        headers: {
-            "Content-Type": "application/json",
-            ...(opciones.headers || {})
-        }
-    });
-
-    // Devuelve la respuesta procesada.
-    return leerRespuestaApi(respuesta);
+    // Intenta ejecutar la peticion centralizada.
+    try {
+        // Devuelve la respuesta procesada por jQuery.
+        return await $.ajax({
+            url: `${API_BASE}${ruta}`,
+            method: opciones.method || "GET",
+            data: opciones.body || undefined,
+            contentType: opciones.body ? "application/json" : undefined,
+            dataType: "json",
+            headers: opciones.headers || {}
+        });
+    } catch (error) {
+        // Lanza un error entendible para las paginas.
+        throw new Error(obtenerMensajeErrorApi(error));
+    }
 }
 
-// Ejecuta una peticion con FormData contra la API.
+// Ejecuta una peticion con FormData contra la API usando jQuery.
 async function apiFormulario(ruta, formulario, opciones = {}) {
-    // Ejecuta la peticion sin forzar encabezados para que el navegador cree multipart.
-    const respuesta = await fetch(`${API_BASE}${ruta}`, {
-        ...opciones,
-        body: formulario
-    });
+    // Intenta ejecutar la peticion multipart centralizada.
+    try {
+        // Devuelve la respuesta procesada por jQuery.
+        return await $.ajax({
+            url: `${API_BASE}${ruta}`,
+            method: opciones.method || "POST",
+            data: formulario,
+            processData: false,
+            contentType: false,
+            dataType: "json",
+            headers: opciones.headers || {}
+        });
+    } catch (error) {
+        // Permite que las respuestas 204 se traten como correctas.
+        if (error.status === 204) return null;
 
-    // Devuelve la respuesta procesada.
-    return leerRespuestaApi(respuesta);
+        // Lanza un error entendible para las paginas.
+        throw new Error(obtenerMensajeErrorApi(error));
+    }
 }
 
 // Obtiene todas las categorias desde la API.
@@ -308,35 +350,35 @@ function actualizarUsuarioEnNavegacion() {
     const perfil = obtenerPerfilLocal();
 
     // Recorre los enlaces que muestran el usuario activo.
-    seleccionarTodos(".usuario-activo").forEach((usuario) => {
+    $(".usuario-activo").each((indice, usuario) => {
         // Busca la imagen del usuario dentro del enlace.
-        const imagen = usuario.querySelector("img");
+        const imagen = seleccionar("img", usuario);
 
         // Busca el texto del alias dentro del enlace.
-        const texto = usuario.querySelector(".perfil-alias") || usuario.querySelector("span");
+        const texto = seleccionar(".perfil-alias", usuario) || seleccionar("span", usuario);
 
         // Actualiza la descripcion accesible del enlace.
-        usuario.setAttribute("aria-label", `Perfil de ${perfil.nombre}`);
+        $(usuario).attr("aria-label", `Perfil de ${perfil.nombre}`);
 
         // Actualiza la foto cuando existe la imagen.
         if (imagen) {
             // Coloca la foto del perfil guardado.
-            imagen.src = perfil.foto;
+            $(imagen).attr("src", perfil.foto);
 
             // Describe la imagen con el nombre del usuario.
-            imagen.alt = `Foto de perfil de ${perfil.nombre}`;
+            $(imagen).attr("alt", `Foto de perfil de ${perfil.nombre}`);
         }
 
         // Actualiza el alias visible cuando existe el texto.
-        if (texto) texto.textContent = perfil.alias;
+        if (texto) $(texto).text(perfil.alias);
     });
 
     // Recorre los enlaces que cierran la sesion.
-    seleccionarTodos('a[href="login.html"]').forEach((enlace) => {
+    $('a[href="login.html"]').each((indice, enlace) => {
         // Verifica si el enlace representa la salida del usuario.
-        if (enlace.textContent.trim().toLowerCase() === "salir" || enlace.classList.contains("salir")) {
+        if ($(enlace).text().trim().toLowerCase() === "salir" || $(enlace).hasClass("salir")) {
             // Escucha el clic del usuario en salir.
-            enlace.addEventListener("click", () => {
+            $(enlace).off("click.sesion").on("click.sesion", () => {
                 // Elimina el estado de sesion local.
                 cerrarSesionLocal();
             });
@@ -350,40 +392,40 @@ function actualizarUsuarioEnNavegacion() {
 // Controla los menus desplegables de perfil en la navegacion.
 function inicializarMenusDePerfil() {
     // Recorre cada contenedor de perfil disponible.
-    seleccionarTodos(".perfil-desplegable").forEach((contenedor) => {
+    $(".perfil-desplegable").each((indice, contenedor) => {
         // Busca el boton que abre el menu.
-        const boton = contenedor.querySelector(".boton-perfil");
+        const boton = seleccionar(".boton-perfil", contenedor);
 
         // Detiene la configuracion si no existe el boton.
-        if (!boton || boton.dataset.menuInicializado === "true") return;
+        if (!boton || $(boton).data("menuInicializado") === true) return;
 
         // Marca el boton para no duplicar eventos.
-        boton.dataset.menuInicializado = "true";
+        $(boton).data("menuInicializado", true);
 
         // Prepara el estado accesible inicial del boton.
-        boton.setAttribute("aria-expanded", "false");
+        $(boton).attr("aria-expanded", "false");
     });
 }
 
 // Cierra todos los menus de perfil abiertos.
 function cerrarMenusDePerfil() {
     // Recorre cada contenedor de perfil.
-    seleccionarTodos(".perfil-desplegable").forEach((contenedor) => {
+    $(".perfil-desplegable").each((indice, contenedor) => {
         // Oculta el menu desplegable.
-        contenedor.classList.remove("abierto");
+        $(contenedor).removeClass("abierto");
 
         // Busca el boton del menu.
-        const boton = contenedor.querySelector(".boton-perfil");
+        const boton = seleccionar(".boton-perfil", contenedor);
 
         // Actualiza el estado accesible cuando existe el boton.
-        if (boton) boton.setAttribute("aria-expanded", "false");
+        if (boton) $(boton).attr("aria-expanded", "false");
     });
 }
 
 // Controla los clics generales para abrir o cerrar el menu de perfil.
-document.addEventListener("click", (evento) => {
+$(document).on("click", (evento) => {
     // Busca si el clic ocurrio sobre el boton de perfil.
-    const botonPerfil = evento.target.closest(".boton-perfil");
+    const botonPerfil = $(evento.target).closest(".boton-perfil").get(0);
 
     // Evalua si el usuario aplasto la foto o boton del perfil.
     if (botonPerfil) {
@@ -391,13 +433,13 @@ document.addEventListener("click", (evento) => {
         evento.preventDefault();
 
         // Busca el contenedor del menu.
-        const contenedor = botonPerfil.closest(".perfil-desplegable");
+        const contenedor = $(botonPerfil).closest(".perfil-desplegable").get(0);
 
         // Detiene la accion si no existe el contenedor.
         if (!contenedor) return;
 
         // Guarda si el menu estaba abierto.
-        const menuAbierto = contenedor.classList.contains("abierto");
+        const menuAbierto = $(contenedor).hasClass("abierto");
 
         // Cierra cualquier menu abierto.
         cerrarMenusDePerfil();
@@ -405,10 +447,10 @@ document.addEventListener("click", (evento) => {
         // Abre el menu actual si estaba cerrado.
         if (!menuAbierto) {
             // Muestra el menu del perfil.
-            contenedor.classList.add("abierto");
+            $(contenedor).addClass("abierto");
 
             // Actualiza el estado accesible del boton.
-            botonPerfil.setAttribute("aria-expanded", "true");
+            $(botonPerfil).attr("aria-expanded", "true");
         }
 
         // Termina el manejo del clic.
@@ -420,7 +462,7 @@ document.addEventListener("click", (evento) => {
 });
 
 // Cierra el menu de perfil cuando se presiona Escape.
-document.addEventListener("keydown", (evento) => {
+$(document).on("keydown", (evento) => {
     // Evalua si la tecla presionada fue Escape.
     if (evento.key === "Escape") cerrarMenusDePerfil();
 });
